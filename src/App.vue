@@ -5,7 +5,6 @@
       <Editor id="editor"></Editor>
       <Preview id="preview"></Preview>
     </main>
-
   </div>
 </template>
 
@@ -55,14 +54,16 @@
     flex-direction: column;
     height: 100%;
     #topbar {
-
     }
     main {
+      width: 1280px;
+      margin-left:auto;
+      margin-right:auto;
       display: flex;
-      align-items: stretch;
       flex-grow: 1;
       #editor {
         min-width: 400px;
+        margin-right: 40px;
       }
       #preview {
         flex-grow: 1;
