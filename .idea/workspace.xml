@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56b7a65b-3496-4a22-bcf2-8850d3f32dee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Editor.vue" afterPath="$PROJECT_DIR$/src/components/Editor.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,10 +29,10 @@
       <file leaf-file-name="Editor.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Editor.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="168">
+              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
-                <element signature="e#811#1263#0" expanded="false" />
+                <element signature="e#825#1277#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -133,7 +132,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="812" />
@@ -210,12 +209,12 @@
       <workItem from="1513251791296" duration="2724000" />
       <workItem from="1513598878209" duration="473000" />
       <workItem from="1514202547662" duration="860000" />
-      <workItem from="1514204611788" duration="3452000" />
+      <workItem from="1514204611788" duration="3541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24842000" />
+    <option name="totallyTimeSpent" value="24931000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -227,7 +226,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="812" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26676384" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998565" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -284,7 +284,7 @@
         <state relative-caret-position="189">
           <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -380,7 +380,7 @@
         <state relative-caret-position="189">
           <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,7 +398,7 @@
         <state relative-caret-position="756">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -484,7 +484,7 @@
         <state relative-caret-position="819">
           <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,7 +541,7 @@
         <state relative-caret-position="987">
           <caret line="47" column="24" lean-forward="true" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -559,7 +559,7 @@
         <state relative-caret-position="1365">
           <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -606,7 +606,7 @@
         <state relative-caret-position="357">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -720,10 +720,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Editor.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="168">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
-            <element signature="e#811#1263#0" expanded="false" />
+            <element signature="e#825#1277#0" expanded="false" />
           </folding>
         </state>
       </provider>
