@@ -57,12 +57,11 @@
     }
     main {
       width: 1280px;
-      margin-left:auto;
-      margin-right:auto;
+      margin:0 auto;
       display: flex;
       flex-grow: 1;
       #editor {
-        min-width: 400px;
+        min-width: 30em;
         margin-right: 40px;
       }
       #preview {

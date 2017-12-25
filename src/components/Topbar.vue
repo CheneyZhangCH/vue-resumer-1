@@ -5,8 +5,8 @@
         R
       </div>
       <div class="actions">
-        <button>登陆</button>
-        <button>注册</button>
+        <el-button plain>登陆</el-button>
+        <el-button plain>注册</el-button>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
   #topbar {
     background-color: #00796b;
     .content {
-      height: 60px;
+      height: 80px;
       max-width: 1280px;
       margin-left:auto;
       margin-right:auto;
@@ -42,7 +42,6 @@
         color: white;
       }
       .actions {
-
       }
     }
   }
