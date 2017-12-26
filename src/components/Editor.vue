@@ -47,6 +47,21 @@
       </li>
       <li v-bind:class="{active: currentTab === 2}">
         <h2>教育经历</h2>
+        <el-form>
+          <div v-model="educationExperience" v-for="(education, index) in educationExperience">
+            <el-form-item label="学校">
+              <el-input v-model="education.name"></el-input>
+            </el-form-item>
+            <el-form-item label="时间">
+              <el-input v-model="education.period"></el-input>
+            </el-form-item>
+            <el-form-item label="专业课程">
+              <el-input v-model="education.content"></el-input>
+            </el-form-item>
+            <el-button type="primary" icon="el-icon-delete" v-on:click="removeEducationExperience(index)"></el-button>
+          </div>
+          <el-button type="primary" icon="el-icon-edit" v-on:click="addEducationExperience"></el-button>
+        </el-form>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
         <h2>项目经历</h2>
@@ -76,6 +91,9 @@
         },
         workExperience: [
           {name: '', period: '', content: ''}
+        ],
+        educationExperience: [
+          {name: '', period: '', content: ''}
         ]
       }
     },
@@ -85,7 +103,13 @@
       },
       removeWorkExperience(index) {
         this.workExperience.splice(index, 1)
-      }
+      },
+      addEducationExperience() {
+        this.educationExperience.push({name: '', period: '', content: ''})
+      },
+      removeEducationExperience(index) {
+        this.educationExperience.splice(index, 1)
+      },
     }
   }
 
