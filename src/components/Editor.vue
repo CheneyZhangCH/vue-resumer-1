@@ -29,22 +29,21 @@
       </li>
       <li v-bind:class="{active: currentTab === 1}">
         <h2>工作经历</h2>
-        <el-form v-model="workExperience" v-for="(work, index) in workExperience" >
-          <el-form-item label="公司">
-            <el-input v-model="workExperience.name"></el-input>
-          </el-form-item>
-          <el-form-item label="时间">
-            <el-input v-model="workExperience.period"></el-input>
-          </el-form-item>
-          <el-form-item label="工作内容">
-            <el-input v-model="profile.content"></el-input>
-          </el-form-item>
-          <el-button type="primary" icon="el-icon-delete" v-on:click="removeWorkExperience(index)"></el-button>
-
-
+        <el-form>
+          <div v-model="workExperience" v-for="(work, index) in workExperience">
+            <el-form-item label="公司">
+              <el-input v-model="work.name"></el-input>
+            </el-form-item>
+            <el-form-item label="时间">
+              <el-input v-model="work.period"></el-input>
+            </el-form-item>
+            <el-form-item label="工作内容">
+              <el-input v-model="work.content"></el-input>
+            </el-form-item>
+            <el-button type="primary" icon="el-icon-delete" v-on:click="removeWorkExperience(index)"></el-button>
+          </div>
+          <el-button type="primary" icon="el-icon-edit" v-on:click="addWorkExperience"></el-button>
         </el-form>
-        <el-button type="primary" icon="el-icon-edit" v-on:click="addWorkExperience"></el-button>
-
       </li>
       <li v-bind:class="{active: currentTab === 2}">
         <h2>教育经历</h2>
@@ -76,15 +75,15 @@
           city: ''
         },
         workExperience: [
-          {name:'', period: '', content:''}
+          {name: '', period: '', content: ''}
         ]
       }
     },
     methods: {
-      addWorkExperience (){
-        this.workExperience.push({name:'', period: '', content:''})
+      addWorkExperience() {
+        this.workExperience.push({name: '', period: '', content: ''})
       },
-      removeWorkExperience (index){
+      removeWorkExperience(index) {
         this.workExperience.splice(index, 1)
       }
     }
