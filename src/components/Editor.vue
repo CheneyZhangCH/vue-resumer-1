@@ -121,6 +121,7 @@
     border: 1px solid green;
     min-height: 100px;
     display: flex;
+    overflow: hidden;
     nav {
       background: black;
       width: 80px;
@@ -129,8 +130,8 @@
       li {
         z-index: 1;
         .icon {
-          width: 40px;
-          height: 40px;
+          width: 32px;
+          height: 32px;
           color: white;
           margin-top: 16px;
           margin-bottom: 16px;
@@ -141,21 +142,22 @@
       .active {
         background: white;
         .icon {
-          fill: black;
+          fill: grey;
         }
-
       }
-
     }
     .panels {
+      flex: 1;
+      padding: 16px;
       li {
         display: none;
         &.active {
           display: block;
+          height:100%;
+          width:100%;
+          overflow: auto ;
         }
       }
     }
   }
-
-
 </style>
