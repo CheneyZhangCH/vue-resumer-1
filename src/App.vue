@@ -58,6 +58,7 @@
     main {
       width: 1280px;
       margin:0 auto;
+      margin-top: 16px;
       display: flex;
       flex-grow: 1;
       #editor {

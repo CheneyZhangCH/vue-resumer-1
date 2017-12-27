@@ -11,63 +11,19 @@
     </nav>
     <ol class="panels">
       <li v-bind:class="{active: currentTab === 0}">
-        <h2>个人信息</h2>
-        <el-form v-model="profile">
-          <el-form-item label="姓名">
-            <el-input v-model="profile.name"></el-input>
-          </el-form-item>
-          <el-form-item label="性别">
-            <el-input v-model="profile.sex"></el-input>
-          </el-form-item>
-          <el-form-item label="年龄">
-            <el-input v-model="profile.age"></el-input>
-          </el-form-item>
-          <el-form-item label="所在地">
-            <el-input v-model="profile.city"></el-input>
-          </el-form-item>
-        </el-form>
+        <Profile v-bind:profile="profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <h2>工作经历</h2>
-        <el-form>
-          <div v-model="workExperience" v-for="(work, index) in workExperience">
-            <el-form-item label="公司">
-              <el-input v-model="work.name"></el-input>
-            </el-form-item>
-            <el-form-item label="时间">
-              <el-input v-model="work.period"></el-input>
-            </el-form-item>
-            <el-form-item label="工作内容">
-              <el-input v-model="work.content"></el-input>
-            </el-form-item>
-            <el-button type="primary" icon="el-icon-delete" v-on:click="removeWorkExperience(index)"></el-button>
-          </div>
-          <el-button type="primary" icon="el-icon-edit" v-on:click="addWorkExperience"></el-button>
-        </el-form>
+        <WorkExperience v-bind:workExperience="workExperience"></WorkExperience>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <h2>教育经历</h2>
-        <el-form>
-          <div v-model="educationExperience" v-for="(education, index) in educationExperience">
-            <el-form-item label="学校">
-              <el-input v-model="education.name"></el-input>
-            </el-form-item>
-            <el-form-item label="时间">
-              <el-input v-model="education.period"></el-input>
-            </el-form-item>
-            <el-form-item label="专业课程">
-              <el-input v-model="education.content"></el-input>
-            </el-form-item>
-            <el-button type="primary" icon="el-icon-delete" v-on:click="removeEducationExperience(index)"></el-button>
-          </div>
-          <el-button type="primary" icon="el-icon-edit" v-on:click="addEducationExperience"></el-button>
-        </el-form>
+        <EducationExperience v-bind:educationExperience="educationExperience"></EducationExperience>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <h2>项目经历</h2>
+        <ProjectExperience v-bind:projectExperience="projectExperience"></ProjectExperience>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
-        <h2>获奖情况</h2>
+        <Awards v-bind:awards="awards"></Awards>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
         <h2>联系方式</h2>
@@ -77,7 +33,21 @@
 </template>
 
 <script>
+
+  import Profile from "./editor/Profile.vue"
+  import WorkExperience from "./editor/WorkExperience.vue"
+  import EducationExperience from "./editor/EducationExperience.vue"
+  import ProjectExperience from "./editor/ProjectExperience.vue"
+  import Awards from "./editor/Awards.vue"
+
   export default {
+    components: {
+      Profile: Profile,
+      WorkExperience: WorkExperience,
+      EducationExperience: EducationExperience,
+      ProjectExperience: ProjectExperience,
+      Awards: Awards
+    },
     data() {
       return {
         currentTab: 0,
@@ -94,22 +64,14 @@
         ],
         educationExperience: [
           {name: '', period: '', content: ''}
+        ],
+        projectExperience: [
+          {name: '', period: '', content: ''}
+        ],
+        awards: [
+          {name: '', period: ''}
         ]
       }
-    },
-    methods: {
-      addWorkExperience() {
-        this.workExperience.push({name: '', period: '', content: ''})
-      },
-      removeWorkExperience(index) {
-        this.workExperience.splice(index, 1)
-      },
-      addEducationExperience() {
-        this.educationExperience.push({name: '', period: '', content: ''})
-      },
-      removeEducationExperience(index) {
-        this.educationExperience.splice(index, 1)
-      },
     }
   }
 
@@ -148,14 +110,25 @@
     }
     .panels {
       flex: 1;
-      padding: 16px;
       li {
         display: none;
         &.active {
           display: block;
-          height:100%;
-          width:100%;
-          overflow: auto ;
+          height: 100%;
+          width: 100%;
+          padding: 16px;
+          overflow: auto;
+          .container {
+            position: relative;
+            .remove-button {
+              width: 16px;
+              height: 16px;
+              position: absolute;
+              top: 12px;
+              right: 4px;
+            }
+          }
+
         }
       }
     }
