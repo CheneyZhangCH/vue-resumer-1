@@ -2,33 +2,33 @@
   <div>
     <h2>工作经历</h2>
     <el-form>
-      <div class="container" v-model="workExperience" v-for="(work, index) in workExperience">
+      <div class="container" v-model="items" v-for="(item, index) in items">
         <el-form-item label="公司">
-          <el-input v-model="work.name"></el-input>
+          <el-input v-model="item.name"></el-input>
         </el-form-item>
         <el-form-item label="时间">
-          <el-input v-model="work.period"></el-input>
+          <el-input v-model="item.period"></el-input>
         </el-form-item>
         <el-form-item label="工作内容">
-          <el-input v-model="work.content"></el-input>
+          <el-input v-model="item.content"></el-input>
         </el-form-item>
-        <i class="el-icon-delete remove-button" v-on:click="removeWorkExperience(index)"></i>
+        <i class="el-icon-delete remove-button" v-on:click="removeItem(index)"></i>
         <hr>
       </div>
-      <el-button type="primary" icon="el-icon-edit" v-on:click="addWorkExperience()"></el-button>
+      <el-button type="primary" icon="el-icon-edit" v-on:click="addItem()"></el-button>
     </el-form>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['workExperience'],
+    props: ['items'],
     methods: {
-      addWorkExperience() {
-        this.workExperience.push({name: '', period: '', content: ''})
+      addItem() {
+        this.items.push({name: '', period: '', content: ''})
       },
-      removeWorkExperience(index) {
-        this.workExperience.splice(index, 1)
+      removeItem(index) {
+        this.items.splice(index, 1)
       }
     }
   }

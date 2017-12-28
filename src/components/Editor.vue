@@ -14,16 +14,16 @@
         <Profile v-bind:profile="profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <WorkExperience v-bind:workExperience="workExperience"></WorkExperience>
+        <WorkExperience v-bind:items="workExperience"></WorkExperience>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <EducationExperience v-bind:educationExperience="educationExperience"></EducationExperience>
+        <EducationExperience v-bind:items="educationExperience"></EducationExperience>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <ProjectExperience v-bind:projectExperience="projectExperience"></ProjectExperience>
+        <ProjectExperience v-bind:items="projectExperience"></ProjectExperience>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
-        <Awards v-bind:awards="awards"></Awards>
+        <Awards v-bind:items="awards"></Awards>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
         <h2>联系方式</h2>
