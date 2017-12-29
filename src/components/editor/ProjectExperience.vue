@@ -27,7 +27,7 @@
       addItem() {
         this.items.push({name: '', period: '', content: ''})
       },
-      removeItem() {
+      removeItem(index) {
         this.items.splice(index, 1)
       }
     }

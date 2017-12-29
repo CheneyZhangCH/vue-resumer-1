@@ -34,12 +34,12 @@
 
 <script>
 
-  import Profile from "./editor/Profile.vue"
-  import WorkExperience from "./editor/WorkExperience.vue"
-  import EducationExperience from "./editor/EducationExperience.vue"
-  import ProjectExperience from "./editor/ProjectExperience.vue"
-  import Awards from "./editor/Awards.vue"
-  import Contacts from "./editor/Contacts.vue"
+  import Profile from "./editor/Profile.vue";
+  import WorkExperience from "./editor/WorkExperience.vue";
+  import EducationExperience from "./editor/EducationExperience.vue";
+  import ProjectExperience from "./editor/ProjectExperience.vue";
+  import Awards from "./editor/Awards.vue";
+  import Contacts from "./editor/Contacts.vue";
 
   export default {
     components: {
