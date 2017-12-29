@@ -26,7 +26,7 @@
         <Awards v-bind:items="awards"></Awards>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
-        <h2>联系方式</h2>
+        <Contacts v-bind:contacts="contacts"></Contacts>
       </li>
     </ol>
   </div>
@@ -39,6 +39,7 @@
   import EducationExperience from "./editor/EducationExperience.vue"
   import ProjectExperience from "./editor/ProjectExperience.vue"
   import Awards from "./editor/Awards.vue"
+  import Contacts from "./editor/Contacts.vue"
 
   export default {
     components: {
@@ -46,7 +47,8 @@
       WorkExperience: WorkExperience,
       EducationExperience: EducationExperience,
       ProjectExperience: ProjectExperience,
-      Awards: Awards
+      Awards: Awards,
+      Contacts: Contacts
     },
     data() {
       return {
@@ -70,7 +72,12 @@
         ],
         awards: [
           {name: '', period: ''}
-        ]
+        ],
+        contacts: {
+          phone:'',
+          qq:'',
+          email:''
+        }
       }
     }
   }

@@ -4,33 +4,23 @@
     <el-form>
       <div class="container" v-model="contacts">
         <el-form-item label="电话">
-          <el-input v-model="project.name"></el-input>
+          <el-input v-model="contacts.phone"></el-input>
         </el-form-item>
-        <el-form-item label="时间">
-          <el-input v-model="project.period"></el-input>
+        <el-form-item label="QQ">
+          <el-input v-model="contacts.qq"></el-input>
         </el-form-item>
-        <el-form-item label="内容">
-          <el-input v-model="project.content"></el-input>
+        <el-form-item label="Email">
+          <el-input v-model="contacts.email"></el-input>
         </el-form-item>
-        <i class="el-icon-delete remove-button" v-on:click="removeProjectExperience(index)"></i>
       </div>
-      <el-button type="primary" icon="el-icon-edit" v-on:click="addProjectExperience()"></el-button>
     </el-form>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['projectExperience'],
-    methods: {
-      addProjectExperience() {
-        this.projectExperience.push({name: '', period: '', content: ''})
-      },
-      removeProjectExperience() {
-        this.projectExperience.splice(index, 1)
-      }
+    props: ['contacts'],
     }
-  }
 </script>
 
 <style lang="scss" scoped>
