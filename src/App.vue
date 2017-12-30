@@ -2,8 +2,8 @@
   <div id="app">
     <Topbar id="topbar"></Topbar>
     <main>
-      <Editor id="editor"></Editor>
-      <Preview id="preview"></Preview>
+      <Editor v-bind:resume="resume" id="editor"></Editor>
+      <Preview v-bind:resume="resume" id="preview"></Preview>
     </main>
   </div>
 </template>
@@ -35,6 +35,35 @@
       Topbar,
       Editor,
       Preview,
+    },
+    data(){
+      return {
+        resume: {
+          profile: {
+            name: "",
+            sex: '',
+            age: '',
+            city: ''
+          },
+          workExperience: [
+            {name: '', period: '', content: ''}
+          ],
+          educationExperience: [
+            {name: '', period: '', content: ''}
+          ],
+          projectExperience: [
+            {name: '', period: '', content: ''}
+          ],
+          awards: [
+            {name: '', period: ''}
+          ],
+          contacts: {
+            phone:'',
+            qq:'',
+            email:''
+          }
+        }
+      }
     }
   }
 

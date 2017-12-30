@@ -11,22 +11,22 @@
     </nav>
     <ol class="panels">
       <li v-bind:class="{active: currentTab === 0}">
-        <Profile v-bind:profile="profile"></Profile>
+        <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <WorkExperience v-bind:items="workExperience"></WorkExperience>
+        <WorkExperience v-bind:items="resume.workExperience"></WorkExperience>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <EducationExperience v-bind:items="educationExperience"></EducationExperience>
+        <EducationExperience v-bind:items="resume.educationExperience"></EducationExperience>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <ProjectExperience v-bind:items="projectExperience"></ProjectExperience>
+        <ProjectExperience v-bind:items="resume.projectExperience"></ProjectExperience>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
-        <Awards v-bind:items="awards"></Awards>
+        <Awards v-bind:items="resume.awards"></Awards>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
-        <Contacts v-bind:contacts="contacts"></Contacts>
+        <Contacts v-bind:contacts="resume.contacts"></Contacts>
       </li>
     </ol>
   </div>
@@ -42,6 +42,7 @@
   import Contacts from "./editor/Contacts.vue";
 
   export default {
+    props:['resume'],
     components: {
       Profile: Profile,
       WorkExperience: WorkExperience,
@@ -55,29 +56,7 @@
         currentTab: 0,
         items: [0, 1, 2, 3, 4, 5],
         icons: ['shenfenxinxi', 'gongzuo', 'xueli', 'projectunpressed', 'award4', 'phone1'],
-        profile: {
-          name: "",
-          sex: '',
-          age: '',
-          city: ''
-        },
-        workExperience: [
-          {name: '', period: '', content: ''}
-        ],
-        educationExperience: [
-          {name: '', period: '', content: ''}
-        ],
-        projectExperience: [
-          {name: '', period: '', content: ''}
-        ],
-        awards: [
-          {name: '', period: ''}
-        ],
-        contacts: {
-          phone:'',
-          qq:'',
-          email:''
-        }
+
       }
     }
   }

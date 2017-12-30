@@ -1,12 +1,19 @@
 <template>
   <div id="preview">
-    我是Preview
+    <h1>
+      {{resume.profile.name}}
+    </h1>
+    <span>{{resume.profile.sex}}</span>
+    <span>{{resume.profile.age}}</span>
+    <span>{{resume.profile.city}}</span>
   </div>
 </template>
 
 <script>
 
-  export default {}
+  export default {
+    props:['resume']
+  }
 
 </script>
 
