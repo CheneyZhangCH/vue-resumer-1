@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <Topbar id="topbar"></Topbar>
+    <div>
+      {{count}}
+      <button @click="add">add</button>
+    </div>
     <main>
       <Editor v-bind:resume="resume" id="editor"></Editor>
       <Preview v-bind:resume="resume" id="preview"></Preview>
@@ -29,6 +33,9 @@
   import Editor from './components/Editor.vue'
   import Preview from './components/Preview.vue'
 
+  import store from './store/index'
+
+
   export default {
     name: 'app',
     components: {
@@ -36,7 +43,8 @@
       Editor,
       Preview,
     },
-    data(){
+    store,
+    data() {
       return {
         resume: {
           profile: {
@@ -58,13 +66,24 @@
             {name: '', period: ''}
           ],
           contacts: {
-            phone:'',
-            qq:'',
-            email:''
+            phone: '',
+            qq: '',
+            email: ''
           }
         }
       }
+    },
+    computed: {
+      count(){
+       return this.$store.state.count
+      }
+    },
+    methods: {
+      add(){
+        this.$store.commit('increment')
+      }
     }
+
   }
 
 </script>
@@ -86,7 +105,7 @@
     }
     main {
       width: 1280px;
-      margin:0 auto;
+      margin: 0 auto;
       margin-top: 16px;
       display: flex;
       flex-grow: 1;

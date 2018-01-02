@@ -41,6 +41,8 @@
   import Awards from "./editor/Awards.vue";
   import Contacts from "./editor/Contacts.vue";
 
+
+
   export default {
     props:['resume'],
     components: {
@@ -56,9 +58,9 @@
         currentTab: 0,
         items: [0, 1, 2, 3, 4, 5],
         icons: ['shenfenxinxi', 'gongzuo', 'xueli', 'projectunpressed', 'award4', 'phone1'],
-
       }
-    }
+    },
+
   }
 
 </script>
