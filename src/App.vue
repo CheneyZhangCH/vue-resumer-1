@@ -3,7 +3,8 @@
     <Topbar id="topbar"></Topbar>
     <div>
       {{count}}
-      <button @click="add">add</button>
+      <button v-on:click="add()">加</button>
+      <button v-on:click="reduce()">减</button>
     </div>
     <main>
       <Editor v-bind:resume="resume" id="editor"></Editor>
@@ -81,6 +82,9 @@
     methods: {
       add(){
         this.$store.commit('increment')
+      },
+      reduce(){
+        this.$store.commit('reducement')
       }
     }
 
