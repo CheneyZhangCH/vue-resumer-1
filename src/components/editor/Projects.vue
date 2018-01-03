@@ -15,7 +15,7 @@
         <i class="el-icon-delete remove-button" v-on:click="removeItem(index)"></i>
         <hr>
       </div>
-      <el-button type="primary" icon="el-icon-edit" v-on:click="addItem()"></el-button>
+      <el-button class="edit-button" type="primary" icon="el-icon-edit" v-on:click="addItem()"></el-button>
     </el-form>
   </div>
 </template>
@@ -45,6 +45,9 @@
       top: 12px;
       right: 4px;
     }
+  }
+  .edit-button {
+    margin-top: 16px;
   }
 
 </style>
