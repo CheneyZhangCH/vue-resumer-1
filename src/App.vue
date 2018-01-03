@@ -3,8 +3,8 @@
     <Topbar id="topbar"></Topbar>
     <div>
       {{count}}
-      <button v-on:click="add()">加</button>
-      <button v-on:click="reduce()">减</button>
+      <button v-on:click="add()">+</button>
+      <button v-on:click="reduce()">-</button>
     </div>
     <main>
       <Editor v-bind:resume="resume" id="editor"></Editor>
@@ -54,13 +54,13 @@
             age: '',
             city: ''
           },
-          workExperience: [
+          jobs: [
             {name: '', period: '', content: ''}
           ],
-          educationExperience: [
+          educations: [
             {name: '', period: '', content: ''}
           ],
-          projectExperience: [
+          projects: [
             {name: '', period: '', content: ''}
           ],
           awards: [

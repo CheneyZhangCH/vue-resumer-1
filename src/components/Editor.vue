@@ -14,13 +14,13 @@
         <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <WorkExperience v-bind:items="resume.workExperience"></WorkExperience>
+        <Jobs v-bind:items="resume.jobs"></Jobs>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <EducationExperience v-bind:items="resume.educationExperience"></EducationExperience>
+        <Educations v-bind:items="resume.educations"></Educations>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <ProjectExperience v-bind:items="resume.projectExperience"></ProjectExperience>
+        <Projects v-bind:items="resume.projects"></Projects>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
         <Awards v-bind:items="resume.awards"></Awards>
@@ -35,21 +35,20 @@
 <script>
 
   import Profile from "./editor/Profile.vue";
-  import WorkExperience from "./editor/WorkExperience.vue";
-  import EducationExperience from "./editor/EducationExperience.vue";
-  import ProjectExperience from "./editor/ProjectExperience.vue";
+  import Jobs from "./editor/Jobs.vue";
+  import Educations from "./editor/Educations.vue";
+  import Projects from "./editor/Projects.vue";
   import Awards from "./editor/Awards.vue";
   import Contacts from "./editor/Contacts.vue";
 
 
-
   export default {
-    props:['resume'],
+    props: ['resume'],
     components: {
       Profile: Profile,
-      WorkExperience: WorkExperience,
-      EducationExperience: EducationExperience,
-      ProjectExperience: ProjectExperience,
+      Jobs: Jobs,
+      Educations: Educations,
+      Projects: Projects,
       Awards: Awards,
       Contacts: Contacts
     },
@@ -60,7 +59,6 @@
         icons: ['shenfenxinxi', 'gongzuo', 'xueli', 'projectunpressed', 'award4', 'phone1'],
       }
     },
-
   }
 
 </script>
