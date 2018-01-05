@@ -43,7 +43,6 @@
 
 
   export default {
-    props: ['resume'],
     components: {
       Profile: Profile,
       Jobs: Jobs,
@@ -54,11 +53,23 @@
     },
     data() {
       return {
-        currentTab: 0,
         items: [0, 1, 2, 3, 4, 5],
         icons: ['shenfenxinxi', 'gongzuo', 'xueli', 'projectunpressed', 'award4', 'phone1'],
       }
     },
+    computed: {
+      currentTab: {
+        get() {
+          return this.$store.state.currentTab
+        },
+        set(value) {
+          return this.$store.commit('setCurrentTab',value)
+        }
+      },
+      resume(){
+        return this.$store.state.resume
+      }
+    }
   }
 
 </script>

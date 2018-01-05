@@ -45,35 +45,6 @@
       Preview,
     },
     store,
-    data() {
-      return {
-        resume: {
-          profile: {
-            name: "",
-            sex: '',
-            age: '',
-            city: ''
-          },
-          jobs: [
-            {name: '', period: '', content: ''}
-          ],
-          educations: [
-            {name: '', period: '', content: ''}
-          ],
-          projects: [
-            {name: '', period: '', content: ''}
-          ],
-          awards: [
-            {name: '', period: ''}
-          ],
-          contacts: {
-            phone: '',
-            qq: '',
-            email: ''
-          }
-        }
-      }
-    },
     computed: {
       count(){
 
