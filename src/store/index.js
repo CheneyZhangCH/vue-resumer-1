@@ -10,11 +10,11 @@ export default new Vuex.Store({
     count: 0
   },
   mutations: {
-    increment(state) {
-      state.count++
+    increment(state, payload) {
+      state.count += payload
     },
-    reducement(state){
-      state.count--
+    reducement(state, payload) {
+      state.count -= payload
     }
   }
 })

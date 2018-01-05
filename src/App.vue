@@ -76,15 +76,19 @@
     },
     computed: {
       count(){
+
+        // $store.state 获取状态对象
        return this.$store.state.count
       }
     },
     methods: {
       add(){
-        this.$store.commit('increment')
+        // $store.commit('xxx') 出发状态变更
+        this.$store.commit('increment',10)
       },
       reduce(){
-        this.$store.commit('reducement')
+        // $store.commit('xxx') 出发状态变更
+        this.$store.commit('reducement',5)
       }
     }
 
