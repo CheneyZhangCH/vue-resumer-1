@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 0,
     currentTab: 0,
     resume: {
       profile: {
@@ -34,12 +33,12 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    increment(state, payload) {
-      state.count += payload
-    },
-    reducement(state, payload) {
-      state.count -= payload
-    },
+    // increment(state, payload) {
+    //   state.count += payload
+    // },
+    // reducement(state, payload) {
+    //   state.count -= payload
+    // },
     setCurrentTab(state, payload){
       state.currentTab = payload
       console.log(this.currentTab)
