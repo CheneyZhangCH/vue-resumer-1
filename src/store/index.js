@@ -41,7 +41,7 @@ export default new Vuex.Store({
     // },
     setCurrentTab(state, payload){
       state.currentTab = payload
-      console.log(this.currentTab)
+      console.log(this.state.currentTab)
     }
   }
 })

@@ -1,18 +1,22 @@
 <template>
   <div id="preview">
     <h1>
-      {{resume.profile.name}}
+      {{resume}}
     </h1>
-    <span>{{resume.profile.sex}}</span>
-    <span>{{resume.profile.age}}</span>
-    <span>{{resume.profile.city}}</span>
+    <!--<span>{{resume.profile.sex}}</span>-->
+    <!--<span>{{resume.profile.age}}</span>-->
+    <!--<span>{{resume.profile.city}}</span>-->
   </div>
 </template>
 
 <script>
 
   export default {
-    props:['resume']
+    computed : {
+      resume(){
+        return this.$store.state.resume
+      }
+    }
   }
 
 </script>

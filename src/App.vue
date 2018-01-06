@@ -2,8 +2,8 @@
     <div id="app">
       <Topbar id="topbar"></Topbar>
       <main>
-        <Editor v-bind:resume="resume" id="editor"></Editor>
-        <Preview v-bind:resume="resume" id="preview"></Preview>
+        <Editor id="editor"></Editor>
+        <Preview id="preview"></Preview>
       </main>
     </div>
   </template>
@@ -43,10 +43,10 @@
       computed: {
 
 
-        count(){
+      // count(){
           // $store.state 获取状态对象
-         return this.$store.state.count
-        }
+      //  return this.$store.state.count
+      // }
       },
       methods: {
         //  add(){
