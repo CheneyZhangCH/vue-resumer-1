@@ -41,7 +41,6 @@
   import Awards from "./editor/Awards.vue";
   import Contacts from "./editor/Contacts.vue";
 
-
   export default {
     components: {
       Profile: Profile,

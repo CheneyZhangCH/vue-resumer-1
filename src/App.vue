@@ -31,7 +31,6 @@
 
     import store from './store/index'
 
-
     export default {
       name: 'app',
       components: {
@@ -42,13 +41,13 @@
       store,
       computed: {
 
-
       // count(){
           // $store.state 获取状态对象
       //  return this.$store.state.count
       // }
       },
       methods: {
+
         //  add(){
         // $store.commit('xxx') 出发状态变更
         //    this.$store.commit('increment',10)
