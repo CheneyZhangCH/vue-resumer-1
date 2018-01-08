@@ -10,7 +10,7 @@ export default new Vuex.Store({
       profile: {
         name: "Cheney",
         sex: 'male',
-        age: '30',
+        birth: '1988-02',
         city: 'Shanghai'
       },
       jobs: [

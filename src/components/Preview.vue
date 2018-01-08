@@ -1,11 +1,11 @@
 <template>
   <div id="preview">
     <h1>
-      {{resume}}
+      {{resume.profile.name}}
     </h1>
-    <!--<span>{{resume.profile.sex}}</span>-->
-    <!--<span>{{resume.profile.age}}</span>-->
-    <!--<span>{{resume.profile.city}}</span>-->
+    <span>{{resume.profile.sex}}</span>
+    <span>{{resume.profile.birth}}</span>
+    <span>{{resume.profile.city}}</span>
   </div>
 </template>
 
