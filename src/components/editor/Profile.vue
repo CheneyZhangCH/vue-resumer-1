@@ -5,11 +5,14 @@
       <el-form-item label="姓名">
         <el-input v-model="profile.name"></el-input>
       </el-form-item>
+      <el-form-item label="职位">
+        <el-input v-model="profile.title"></el-input>
+      </el-form-item>
       <el-form-item label="性别">
         <el-input v-model="profile.sex"></el-input>
       </el-form-item>
-      <el-form-item label="年龄">
-        <el-input v-model="profile.age"></el-input>
+      <el-form-item label="出生年月">
+        <el-input v-model="profile.birth"></el-input>
       </el-form-item>
       <el-form-item label="所在地">
         <el-input v-model="profile.city"></el-input>

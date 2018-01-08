@@ -9,26 +9,32 @@ export default new Vuex.Store({
     resume: {
       profile: {
         name: "Cheney",
+        title: "Web Developer",
         sex: 'male',
         birth: '1988-02',
         city: 'Shanghai'
       },
       jobs: [
-        {name: 'jobs', period: 'period', content: 'content'}
+        {name: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'},
+        {name: 'job2', period: 'period2', content: 'content2'},
+        {name: 'job3', period: 'period3', content: 'content3'},
+        {name: 'job4', period: 'period4', content: 'content4'},
       ],
       educations: [
-        {name: 'educations', period: 'period', content: 'content'}
+        {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'},
       ],
       projects: [
-        {name: 'projects', period: 'period', content: 'content'}
+        {name: '在线简历编辑器', period: 'period', content: 'content'},
+        {name: '在线记事本', period: 'period', content: 'content'},
+        {name: '其他小demo', period: 'period', content: 'content'}
       ],
       awards: [
-        {name: 'awards', period: 'period'}
+        {name: '优秀员工', period: 'period'},
       ],
       contacts: {
-        phone: 'phone',
-        qq: 'qq',
-        email: 'email'
+        phone: '18521563197',
+        qq: '819046240',
+        email: 'cheney_zhang@foxmail.com'
       }
     }
   },
@@ -39,7 +45,7 @@ export default new Vuex.Store({
     // reducement(state, payload) {
     //   state.count -= payload
     // },
-    setCurrentTab(state, payload){
+    setCurrentTab(state, payload) {
       state.currentTab = payload
       console.log(this.state.currentTab)
     }
