@@ -3,14 +3,8 @@
     <h2>工作经历</h2>
     <el-form>
       <div class="container" v-model="items" v-for="(item, index) in items">
-        <el-form-item label="公司">
-          <el-input v-model="item.name"></el-input>
-        </el-form-item>
-        <el-form-item label="时间">
-          <el-input v-model="item.period"></el-input>
-        </el-form-item>
-        <el-form-item label="工作内容">
-          <el-input v-model="item.content"></el-input>
+        <el-form-item v-for="itemKey in itemKeys" v-bind:label="labels[itemKey]" :key="itemKey.id">
+          <el-input v-model="item[itemKey]"></el-input>
         </el-form-item>
         <i class="el-icon-delete remove-button" v-on:click="removeItem(index)"></i>
         <hr>
@@ -22,7 +16,12 @@
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['items'],
+    props: ['items', 'labels'],
+    computed: {
+      itemKeys() {
+        return Object.keys(this.items[0])
+      }
+    },
     methods: {
       addItem() {
         this.items.push({name: '', period: '', content: ''})
@@ -46,6 +45,7 @@
       right: 4px;
     }
   }
+
   .edit-button {
     margin-top: 16px;
   }

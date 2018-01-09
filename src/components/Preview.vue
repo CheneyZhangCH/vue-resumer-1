@@ -17,7 +17,7 @@
       <h2>工作经验</h2>
       <ul>
         <li v-for="item in resume.jobs">
-          <h4> {{item.name}}</h4>
+          <h4> {{item.company}}</h4>
           <h4> {{item.period}}</h4>
           <h4> {{item.content}}</h4>
         </li>

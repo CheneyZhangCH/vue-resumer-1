@@ -15,18 +15,13 @@ export default new Vuex.Store({
         city: 'Shanghai'
       },
       jobs: [
-        {name: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'},
-        {name: 'job2', period: 'period2', content: 'content2'},
-        {name: 'job3', period: 'period3', content: 'content3'},
-        {name: 'job4', period: 'period4', content: 'content4'},
+        {company: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'},
       ],
       educations: [
         {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'},
       ],
       projects: [
         {name: '在线简历编辑器', period: 'period', content: 'content'},
-        {name: '在线记事本', period: 'period', content: 'content'},
-        {name: '其他小demo', period: 'period', content: 'content'}
       ],
       awards: [
         {name: '优秀员工', period: 'period'},

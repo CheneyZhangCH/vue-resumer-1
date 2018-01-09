@@ -14,7 +14,7 @@
         <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <Jobs v-bind:items="resume.jobs"></Jobs>
+        <Jobs v-bind:items="resume.jobs" v-bind:labels="{company: '公司',period: '工作时间', content:'工作内容' }"></Jobs>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
         <Educations v-bind:items="resume.educations"></Educations>
@@ -62,10 +62,10 @@
           return this.$store.state.currentTab
         },
         set(value) {
-          return this.$store.commit('setCurrentTab',value)
+          return this.$store.commit('setCurrentTab', value)
         }
       },
-      resume(){
+      resume() {
         return this.$store.state.resume
       }
     }
