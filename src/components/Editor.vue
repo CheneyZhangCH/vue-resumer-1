@@ -14,16 +14,16 @@
         <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <Jobs v-bind:items="resume.jobs" v-bind:labels="{company: '公司',period: '工作时间', content:'工作内容' }"></Jobs>
+        <Jobs v-bind:jobs="resume.jobs" ></Jobs>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <Educations v-bind:items="resume.educations"></Educations>
+        <Educations v-bind:educations="resume.educations"></Educations>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <Projects v-bind:items="resume.projects"></Projects>
+        <Projects v-bind:projects="resume.projects"></Projects>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
-        <Awards v-bind:items="resume.awards"></Awards>
+        <Awards v-bind:awards="resume.awards"></Awards>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
         <Contacts v-bind:contacts="resume.contacts"></Contacts>

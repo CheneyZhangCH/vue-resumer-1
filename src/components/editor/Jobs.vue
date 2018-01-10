@@ -2,32 +2,34 @@
   <div>
     <h2>工作经历</h2>
     <el-form>
-      <div class="container" v-model="items" v-for="(item, index) in items">
-        <el-form-item v-for="itemKey in itemKeys" v-bind:label="labels[itemKey]" :key="itemKey.id">
-          <el-input v-model="item[itemKey]"></el-input>
+      <div class="container" v-model="jobs" v-for="(job, index) in jobs">
+        <el-form-item label="公司">
+          <el-input v-model="job.company"></el-input>
         </el-form-item>
-        <i class="el-icon-delete remove-button" v-on:click="removeItem(index)"></i>
+        <el-form-item label="时间">
+          <el-input v-model="job.period"></el-input>
+        </el-form-item>
+        <el-form-item label="工作内容">
+          <el-input v-model="job.content"></el-input>
+        </el-form-item>
+        <i class="el-icon-delete remove-button" v-on:click="removeJob(index)"></i>
         <hr>
       </div>
-      <el-button class="edit-button" type="primary" icon="el-icon-edit" v-on:click="addItem()"></el-button>
+      <el-button class="edit-button" type="primary" icon="el-icon-edit" v-on:click="addJob()"></el-button>
     </el-form>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['items', 'labels'],
-    computed: {
-      itemKeys() {
-        return Object.keys(this.items[0])
-      }
-    },
+    props: ['jobs'],
+    computed: {},
     methods: {
-      addItem() {
-        this.items.push({name: '', period: '', content: ''})
+      addJob() {
+        this.$store.commit('addJob')
       },
-      removeItem(index) {
-        this.items.splice(index, 1)
+      removeJob(index){
+        this.$store.commit('removeJob', index)
       }
     }
   }

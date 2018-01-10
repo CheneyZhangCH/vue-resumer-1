@@ -43,6 +43,30 @@ export default new Vuex.Store({
     setCurrentTab(state, payload) {
       state.currentTab = payload
       console.log(this.state.currentTab)
+    },
+    addJob(state) {
+      state.resume.jobs.push({company: '', period: '', content: ''})
+    },
+    removeJob(state, index) {
+      state.resume.jobs.splice(index, 1)
+    },
+    addEducation(state) {
+      state.resume.educations.push({name: '', period: '', content: ''})
+    },
+    removeEducation(state, index) {
+      state.resume.educations.splice(index, 1)
+    },
+    addProject(state) {
+      state.resume.projects.push({name: '', period: '', content: ''})
+    },
+    removeProject(state, index) {
+      state.resume.projects.splice(index, 1)
+    },
+    addAward(state) {
+      state.resume.awards.push({name: '', period: '', content: ''})
+    },
+    removeAward(state, index) {
+      state.resume.awards.splice(index, 1)
     }
   }
 })
