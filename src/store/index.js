@@ -68,12 +68,20 @@ export default new Vuex.Store({
     removeAward(state, index) {
       state.resume.awards.splice(index, 1)
     },
-    updateProfile(state, payload){
-      let key = payload.key;
-      console.log(key)
-      let value = payload.value;
-      console.log(value)
-      state.resume.profile.key = value
-    }
+    updateProfileName(state, payload) {
+      state.resume.profile.name = payload
+    },
+    updateProfileTitle(state, payload) {
+      state.resume.profile.title = payload
+    },
+    updateProfileSex(state, payload) {
+      state.resume.profile.sex = payload
+    },
+    updateProfileBirth(state, payload) {
+      state.resume.profile.birth = payload
+    },
+    updateProfileCity(state, payload) {
+      state.resume.profile.city = payload
+    },
   }
 })
