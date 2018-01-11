@@ -1,9 +1,12 @@
 <template>
   <div>
     <h2>个人信息</h2>
-    <el-form v-model="profile">
-      <!--<el-form-item v-for="key in keys" v-bind:label="labels[key]">-->
-      <!--<el-input v-bind:value="profile.name" v-on:input.native="updateProfile()"></el-input>-->
+    <p>{{profile}}</p>
+    <p>{{keys}}</p>
+    <el-form>
+
+      <!--<el-form-item v-for="{key, value}  in profile" v-bind:label="profile.key">-->
+        <!--<el-input v-bind:value="profile.key" v-on:input.native="updateProfileName($event,key)"></el-input>-->
       <!--</el-form-item>-->
 
       <el-form-item label="公司">
@@ -26,11 +29,10 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
-//    props: ['labels'],
     computed: {
-//      keys() {
-//        return Object.keys(this.$store.state.resume.profile)
-//      },
+      keys() {
+        return Object.keys(this.$store.state.resume.profile);
+      },
       profile() {
         return this.$store.state.resume.profile;
       }
@@ -38,18 +40,22 @@
     methods: {
       updateProfileName($event) {
         this.$store.commit('updateProfileName', $event.target.value)
-      },
+      }
+      ,
       updateProfileTitle($event) {
         this.$store.commit('updateProfileTitle', $event.target.value)
-      },
+      }
+      ,
       updateProfileSex($event) {
-        this.$store.commit('updateProfileName', $event.target.value)
-      },
+        this.$store.commit('updateProfileSex', $event.target.value)
+      }
+      ,
       updateProfileBirth($event) {
-        this.$store.commit('updateProfileName', $event.target.value)
-      },
+        this.$store.commit('updateProfileBirth', $event.target.value)
+      }
+      ,
       updateProfileCity($event) {
-        this.$store.commit('updateProfileName', $event.target.value)
+        this.$store.commit('updateProfileCity', $event.target.value)
       }
     }
   }
