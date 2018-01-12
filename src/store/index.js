@@ -74,5 +74,7 @@ export default new Vuex.Store({
       let value = payload.value
       state.resume.profile[newkey] = value
     },
+
+
   }
 })

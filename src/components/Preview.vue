@@ -1,6 +1,5 @@
 <template>
   <div id="preview">
-    {{resume.profile}}
     <section id="profile">
       <div v-if="resume.profile">
         <h1>
