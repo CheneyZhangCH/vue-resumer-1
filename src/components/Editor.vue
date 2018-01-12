@@ -11,8 +11,7 @@
     </nav>
     <ol class="panels">
       <li v-bind:class="{active: currentTab === 0}">
-        <Profile v-bind:profile="resume.profile"
-                 v-bind:labels="{name:'姓名',title:'职位', sex:'性别', birth:'出生年月', city:'城市'}"></Profile>
+        <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
         <Jobs v-bind:jobs="resume.jobs"></Jobs>
