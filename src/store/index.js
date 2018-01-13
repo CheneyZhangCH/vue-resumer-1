@@ -29,9 +29,9 @@ export default new Vuex.Store({
         {name: '优秀员工', period: 'period'},
       ],
       contacts: {
-        phone: '18521563197',
-        qq: '819046240',
-        email: 'cheney_zhang@foxmail.com'
+        phone: '',
+        qq: '',
+        email: ''
       }
     }
   },
@@ -82,12 +82,28 @@ export default new Vuex.Store({
       let index = payload.index
       state.resume.jobs[index][newkey] = value
     },
-    updateEducations(state, payload) {
+    updateEducation(state, payload) {
       let newkey = payload.key
       let value = payload.value
       let index = payload.index
       state.resume.educations[index][newkey] = value
-    }
-
+    },
+    updateProject(state, payload) {
+      let newkey = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume.projects[index][newkey] = value
+    },
+    updateAward(state, payload) {
+      let newkey = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume.awards[index][newkey] = value
+    },
+    updateContacts(state, payload) {
+      let newkey = payload.key
+      let value = payload.value
+      state.resume.contacts[newkey] = value
+    },
   }
 })

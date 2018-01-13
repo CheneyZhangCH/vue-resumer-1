@@ -3,9 +3,12 @@
     <h2>工作经历</h2>
     <el-form>
       <div class="container" v-for="(job, index) in jobs">
-        <el-form-item v-for="key in keys" v-bind:label="labels[key]"
-                      :key="key.id">
-          <el-input v-bind:value="job[key]" v-on:input.native="updateJob($event, key, index)">
+        <el-form-item v-for="key in keys"
+                      v-bind:label="labels[key]"
+                      v-bind:key="key.id">
+          <el-input v-bind:value="job[key]"
+                    v-on:input.native="updateJob($event, key, index)"
+                    placeholder="请输入相关内容">
           </el-input>
         </el-form-item>
         <i class="el-icon-delete remove-button" v-on:click="removeJob(index)"></i>

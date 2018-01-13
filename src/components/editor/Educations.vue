@@ -3,8 +3,13 @@
     <h2>教育经历</h2>
     <el-form>
       <div class="container" v-for="(education, index) in educations">
-        <el-form-item v-for="key in keys" v-bind:label="labels[key]" :key="key.id">
-          <el-input v-bind:value="education[key]" v-on:input.native="updateEducations($event, key, index)"></el-input>
+        <el-form-item v-for="key in keys"
+                      v-bind:label="labels[key]"
+                      v-bind:key="key.id">
+          <el-input v-bind:value="education[key]"
+                    v-on:input.native="updateEducation($event, key, index)"
+                    placeholder="请输入相关内容">
+          </el-input>
         </el-form-item>
         <i class="el-icon-delete remove-button" v-on:click="removeEducation(index)"></i>
         <hr>
@@ -42,8 +47,8 @@
       removeEducation(index) {
         this.$store.commit('removeEducation', index)
       },
-      updateEducations($event, key, index) {
-        this.$store.commit('updateEducations', {
+      updateEducation($event, key, index) {
+        this.$store.commit('updateEducation', {
           value: $event.target.value,
           key: key,
           index: index

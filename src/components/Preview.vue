@@ -23,7 +23,6 @@
       </ul>
     </section>
 
-
     <section v-if="resume.educations">
       <h2>教育背景</h2>
       <ul>
@@ -35,14 +34,45 @@
       </ul>
     </section>
 
+    <section v-if="resume.projects">
+      <h2>项目经历</h2>
+      <ul>
+        <li v-for="item in resume.projects">
+          <h4> {{item.name}}</h4>
+          <h4> {{item.period}}</h4>
+          <h4> {{item.content}}</h4>
+        </li>
+      </ul>
+    </section>
 
+    <section v-if="resume.awards">
+      <h2>获奖经历</h2>
+      <ul>
+        <li v-for="item in resume.awards">
+          <h4> {{item.name}}</h4>
+          <h4> {{item.period}}</h4>
+        </li>
+      </ul>
+    </section>
 
-  </div>
+    <section v-if="resume.contacts">
+      <h2>联系方式</h2>
+      <h4> {{resume.contacts.phone}}</h4>
+      <h4> {{resume.contacts.qq}}</h4>
+      <h4> {{resume.contacts.email}}</h4>
+    </section>
+
+    </div>
 </template>
 
 <script>
 
   export default {
+    data() {
+      return {
+        value6: ''
+      }
+    },
     computed: {
       resume() {
         return this.$store.state.resume

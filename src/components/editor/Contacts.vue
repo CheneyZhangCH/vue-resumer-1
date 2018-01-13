@@ -3,14 +3,13 @@
     <h2>联系方式</h2>
     <el-form>
       <div class="container" v-model="contacts">
-        <el-form-item label="电话">
-          <el-input v-model="contacts.phone"></el-input>
-        </el-form-item>
-        <el-form-item label="QQ">
-          <el-input v-model="contacts.qq"></el-input>
-        </el-form-item>
-        <el-form-item label="Email">
-          <el-input v-model="contacts.email"></el-input>
+        <el-form-item v-for="(val, key) in contacts"
+                      v-bind:label="labels[key]"
+                      :key="key.id">
+          <el-input v-bind:value="contacts[key]"
+                    v-on:input.native="updateContacts($event, key)"
+                    placeholder="请输入相关内容">
+          </el-input>
         </el-form-item>
       </div>
     </el-form>
@@ -19,8 +18,29 @@
 
 <script type="text/ecmascript-6">
   export default {
-    props: ['contacts'],
+    data() {
+      return {
+        labels: {
+          phone: '联系电话',
+          qq: 'QQ',
+          email: '邮箱'
+        }
+      }
+    },
+    computed: {
+      keys() {
+        return Object.keys(this.$store.state.contacts)
+      },
+      contacts() {
+        return this.$store.state.resume.contacts;
+      }
+    },
+    methods: {
+      updateContacts($event, key) {
+        this.$store.commit('updateContacts', {key: key, value: $event.target.value})
+      },
     }
+  }
 </script>
 
 <style lang="scss" scoped>
