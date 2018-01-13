@@ -15,7 +15,7 @@
         <i class="el-icon-delete remove-button" v-on:click="removeProject(index)"></i>
         <hr>
       </div>
-      <el-button class="edit-button" type="primary" icon="el-icon-edit" v-on:click="addProject()"></el-button>
+      <el-button class="edit-button" v-on:click="addProject()">添加</el-button>
     </el-form>
   </div>
 </template>

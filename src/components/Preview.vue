@@ -24,6 +24,19 @@
     </section>
 
 
+    <section v-if="resume.educations">
+      <h2>教育背景</h2>
+      <ul>
+        <li v-for="item in resume.educations">
+          <h4> {{item.name}}</h4>
+          <h4> {{item.period}}</h4>
+          <h4> {{item.content}}</h4>
+        </li>
+      </ul>
+    </section>
+
+
+
   </div>
 </template>
 

@@ -16,6 +16,8 @@ export default new Vuex.Store({
       },
       jobs: [
         {company: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'},
+        {company: '南通贝斯特1', period: '2015年至今1', content: '公司内部OA系统1'},
+        {company: '南通贝斯特2', period: '2015年至今2', content: '公司内部OA系统2'},
       ],
       educations: [
         {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'},
@@ -42,7 +44,6 @@ export default new Vuex.Store({
     // },
     setCurrentTab(state, payload) {
       state.currentTab = payload
-      console.log(this.state.currentTab)
     },
     addJob(state) {
       state.resume.jobs.push({company: '', period: '', content: ''})
@@ -74,7 +75,19 @@ export default new Vuex.Store({
       let value = payload.value
       state.resume.profile[newkey] = value
     },
-
+    updateJob(state, payload) {
+      console.log(payload)
+      let newkey = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume.jobs[index][newkey] = value
+    },
+    updateEducations(state, payload) {
+      let newkey = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume.educations[index][newkey] = value
+    }
 
   }
 })
