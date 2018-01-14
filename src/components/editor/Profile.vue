@@ -10,16 +10,11 @@
                   placeholder="请输入相关内容">
         </el-input>
       </el-form-item>
-      <el-date-picker
-        v-model="value1"
-        type="date"
-        placeholder="选择日期">
-      </el-date-picker>
-      <p v-on:click="xxx()">
-        {{value1}}
-      </p>
-      <p>{{day}}</p>
-
+      <!--<el-date-picker-->
+      <!--v-model="value1"-->
+      <!--type="date"-->
+      <!--placeholder="选择日期">-->
+      <!--</el-date-picker>-->
     </el-form>
   </div>
 </template>
@@ -39,11 +34,6 @@
       profile() {
         return this.$store.state.resume.profile;
       },
-      day() {
-        return typeof  this.value1
-      },
-
-
     },
     methods: {
       updateProfile($event, key) {
