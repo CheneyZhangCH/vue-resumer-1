@@ -14,7 +14,7 @@
         <i class="el-icon-delete remove-button" v-on:click="removeAward(index)"></i>
         <hr>
       </div>
-      <el-button class="edit-button" type="primary" icon="el-icon-edit" v-on:click="addAward()"></el-button>
+      <el-button class="edit-button" v-on:click="addAward()">添加一项</el-button>
     </el-form>
   </div>
 </template>

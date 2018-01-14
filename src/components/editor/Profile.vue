@@ -40,7 +40,7 @@
         return this.$store.state.resume.profile;
       },
       day() {
-        return this.value1.toString()
+        return typeof  this.value1
       },
 
 
