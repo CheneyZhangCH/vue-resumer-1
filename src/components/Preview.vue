@@ -57,12 +57,15 @@
 
     <section v-if="resume.contacts">
       <h2>联系方式</h2>
-      <h4> {{resume.contacts.phone}}</h4>
+      <p>电话</p>
+      <p> {{resume.contacts.phone}}</p>
+      <p>QQ</p>
       <h4> {{resume.contacts.qq}}</h4>
+      <p>邮箱</p>
       <h4> {{resume.contacts.email}}</h4>
     </section>
 
-    </div>
+  </div>
 </template>
 
 <script>
