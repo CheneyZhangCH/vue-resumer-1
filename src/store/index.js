@@ -32,7 +32,8 @@ export default new Vuex.Store({
         phone: '',
         qq: '',
         email: ''
-      }
+      },
+      login: true
     }
   },
   mutations: {
@@ -105,5 +106,11 @@ export default new Vuex.Store({
       let value = payload.value
       state.resume.contacts[newkey] = value
     },
+    toLogin(state) {
+      state.resume.login = true
+    },
+    cancelLogin(state) {
+      state.resume.login = false
+    }
   }
 })

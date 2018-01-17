@@ -1,95 +1,98 @@
-  <template>
-    <div id="app">
-      <Topbar id="topbar"></Topbar>
-      <main>
-        <Editor id="editor"></Editor>
-        <Preview id="preview"></Preview>
-      </main>
-    </div>
-  </template>
+<template>
+  <div id="app">
+    <Topbar id="topbar"></Topbar>
+    <main>
+      <Editor id="editor"></Editor>
+      <Preview id="preview"></Preview>
+    </main>
+  </div>
+</template>
 
-  <script>
-    /*
-    // 先引入hello World，在template中即可应用
-    import HelloWorld from './components/HelloWorld'
-    import Zhang from './components/Cheney'
+<script>
+  /*
+  // 先引入hello World，在template中即可应用
+  import HelloWorld from './components/HelloWorld'
+  import Zhang from './components/Cheney'
 
-    // 将App导出，App引用组件HelloWorld，书写形式必须如下
-    export default {
-      name: 'app',
-      components: {
-        "HelloWorld": HelloWorld,
-        "Cheney": Zhang
-        // 此处的Cheney对应template中的标签名字
-      }
+  // 将App导出，App引用组件HelloWorld，书写形式必须如下
+  export default {
+    name: 'app',
+    components: {
+      "HelloWorld": HelloWorld,
+      "Cheney": Zhang
+      // 此处的Cheney对应template中的标签名字
     }
-    */
+  }
+  */
 
-    import Topbar from './components/Topbar.vue'
-    import Editor from './components/Editor.vue'
-    import Preview from './components/Preview.vue'
+  import Topbar from './components/Topbar.vue'
+  import Editor from './components/Editor.vue'
+  import Preview from './components/Preview.vue'
 
-    import store from './store/index'
+  import store from './store/index'
 
-    export default {
-      name: 'app',
-      components: {
-        Topbar,
-        Editor,
-        Preview,
-      },
-      store,
-      computed: {
+  export default {
+    name: 'app',
+    components: {
+      Topbar,
+      Editor,
+      Preview,
+    },
+    store,
+    computed: {
+      resume() {
+        return this.$store.state.resume
+      }
 
       // count(){
-          // $store.state 获取状态对象
+      // $store.state 获取状态对象
       //  return this.$store.state.count
       // }
-      },
-      methods: {
+    },
+    methods: {
 
-        //  add(){
-        // $store.commit('xxx') 出发状态变更
-        //    this.$store.commit('increment',10)
-        //  },
-        //  reduce(){
-        // $store.commit('xxx') 出发状态变更
-        //    this.$store.commit('reducement',5)
-        //  }
-        //}
-      }
+      //  add(){
+      // $store.commit('xxx') 出发状态变更
+      //    this.$store.commit('increment',10)
+      //  },
+      //  reduce(){
+      // $store.commit('xxx') 出发状态变更
+      //    this.$store.commit('reducement',5)
+      //  }
+      //}
     }
+  }
 
-  </script>
+</script>
 
-  <style lang="scss">
-    html {
-      height: 100%;
+<style lang="scss">
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    #topbar {
     }
-
-    body {
-      height: 100%;
-    }
-
-    #app {
+    main {
+      width: 1280px;
+      margin: 0 auto;
+      margin-top: 16px;
       display: flex;
-      flex-direction: column;
-      height: 100%;
-      #topbar {
+      flex-grow: 1;
+      #editor {
+        min-width: 30em;
+        margin-right: 40px;
       }
-      main {
-        width: 1280px;
-        margin: 0 auto;
-        margin-top: 16px;
-        display: flex;
+      #preview {
         flex-grow: 1;
-        #editor {
-          min-width: 30em;
-          margin-right: 40px;
-        }
-        #preview {
-          flex-grow: 1;
-        }
       }
     }
-  </style>
+  }
+</style>

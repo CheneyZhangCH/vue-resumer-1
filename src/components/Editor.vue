@@ -1,5 +1,5 @@
 <template>
-  <div id="editor">
+  <div id="editor" v-show="resume.login === false">
     <nav>
       <ol>
         <li v-for="i in items" v-bind:class="{active: currentTab === i}" v-on:click="currentTab = i">

@@ -1,5 +1,5 @@
 <template>
-  <div id="preview">
+  <div id="preview" v-show="resume.login === false">
     <section id="profile">
       <div v-if="resume.profile">
         <h1>
