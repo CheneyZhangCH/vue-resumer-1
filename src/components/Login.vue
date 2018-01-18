@@ -18,7 +18,7 @@
 
 <script type="text/ecmascript-6">
 
-  import AV from 'leancloud-storage'
+  import AV from '../lib/leancloud'
 
   export default {
     data() {
@@ -42,17 +42,38 @@
         this.$store.commit('cancelLogin')
       },
       onSubmit() {
-        let APP_ID = '6CqVakWVTbDYC7XaEGp2SHwO-gzGzoHsz';
-        let APP_KEY = 'bJk2dfIGpQisCyq1PB850DOV';
-
-        AV.init({
-          appId: APP_ID,
-          appKey: APP_KEY
+        AV.User.logIn(this.form.username, this.form.password).then(function (loginedUser) {
+          console.log(loginedUser);
+          alert('欢迎您')
+        }, function (error) {
         });
 
+        this.$store.commit('cancelLogin')
 
 
+//        let currentUser = AV.User.current();
+//        if (currentUser) {
+//          alert('欢迎您' + currentUser.attributes.username)
+//        }
+//        else {
+//          //currentUser 为空时，可打开用户注册界面…
+//        }
+
+//
+//        // 新建 AVUser 对象实例
+//        let user = new AV.User();
+//        // 设置用户名
+//        user.setUsername(this.form.username);
+//        // 设置密码
+//        user.setPassword(this.form.password);
+//        // 设置邮箱
+//        user.signUp().then(function (loginedUser) {
+//          alert('注册成功')
+//        }, function (error) {
+//        });
       }
+
+
     }
   }
 </script>
