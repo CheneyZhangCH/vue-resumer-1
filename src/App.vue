@@ -40,9 +40,7 @@
     },
     store,
     computed: {
-      resume() {
-        return this.$store.state.resume
-      }
+
 
       // count(){
       // $store.state 获取状态对象

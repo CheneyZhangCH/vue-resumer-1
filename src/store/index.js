@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentTab: 0,
+    login: false,
     resume: {
       profile: {
         name: "Cheney",
@@ -32,8 +33,7 @@ export default new Vuex.Store({
         phone: '',
         qq: '',
         email: ''
-      },
-      login: true
+      }
     }
   },
   mutations: {
@@ -107,10 +107,10 @@ export default new Vuex.Store({
       state.resume.contacts[newkey] = value
     },
     toLogin(state) {
-      state.resume.login = true
+      state.login = true
     },
     cancelLogin(state) {
-      state.resume.login = false
+      state.login = false
     }
   }
 })

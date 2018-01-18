@@ -1,5 +1,5 @@
 <template>
-  <div id="editor" v-show="resume.login === false">
+  <div id="editor" v-show="login === false">
     <nav>
       <ol>
         <li v-for="i in items" v-bind:class="{active: currentTab === i}" v-on:click="currentTab = i">
@@ -67,6 +67,9 @@
       },
       resume() {
         return this.$store.state.resume
+      },
+      login() {
+        return this.$store.state.login
       }
     }
   }
@@ -81,7 +84,7 @@
     display: flex;
     overflow: hidden;
     nav {
-      background: black;
+      background: hsla(0, 0%, 0%, 0.2);
       width: 80px;
       height: 100%;
       text-align: center;
