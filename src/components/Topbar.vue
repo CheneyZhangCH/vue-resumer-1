@@ -1,24 +1,35 @@
 <template>
   <div id="topbar">
     <div class="container">
-      <div class="content" v-show="login === false">
+      <div class="content" v-show="loginUI === false">
         <div class="logo">
           R
         </div>
-        <div class="actions" v-show="login === false">
-          <el-button plain v-on:click.native="toLogin()">登陆</el-button>
-          <el-button plain v-on:click.native="toLogin()">注册</el-button>
+        <div class="actions" v-show="loginUI === false">
+          <span v-show="canLogOut === true">  Welcome {{user.name}}</span>
+          <el-button plain v-on:click.native="toLogin()" v-show="canLogin === true">登陆</el-button>
+          <el-button plain v-on:click.native="toLogin()" v-show="canLogin === true">注册</el-button>
+          <el-button plain v-on:click.native="toLogOut()" v-show="canLogOut === true">登出</el-button>
         </div>
       </div>
     </div>
-    <Login v-show="login === true"></Login>
+    <Login v-show="loginUI === true"></Login>
   </div>
 </template>
 
 <script>
   import Login from './Login.vue'
 
+  import AV from '../lib/leancloud'
+
+
   export default {
+    data() {
+      return {
+        canLogin: true,
+        canLogOut: false
+      }
+    },
 
     components: {
       Login: Login
@@ -28,14 +39,26 @@
       resume() {
         return this.$store.state.resume
       },
-      login() {
-        return this.$store.state.login
+      loginUI() {
+        return this.$store.state.loginUI
+      },
+      user() {
+        return this.$store.state.user
       }
     },
 
     methods: {
       toLogin() {
         this.$store.commit('toLogin')
+      },
+      toLogOut() {
+        AV.User.logOut();
+        let currentUser = AV.User.current();
+        console.log(currentUser)
+        this.$store.commit('setUser', {
+          id: '',
+          username: ''
+        })
       },
     }
 

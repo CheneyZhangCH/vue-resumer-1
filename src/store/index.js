@@ -6,7 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currentTab: 0,
-    login: false,
+    loginUI: false,
+    user: {
+      id: '',
+      username: '',
+    },
     resume: {
       profile: {
         name: "Cheney",
@@ -107,10 +111,15 @@ export default new Vuex.Store({
       state.resume.contacts[newkey] = value
     },
     toLogin(state) {
-      state.login = true
+      state.loginUI = true
     },
     cancelLogin(state) {
-      state.login = false
+      state.loginUI = false
+    },
+    setUser(state, payload) {
+      state.user.id = payload.id
+      state.user.username = payload.username
+      console.log(payload)
     }
-  }
+  },
 })

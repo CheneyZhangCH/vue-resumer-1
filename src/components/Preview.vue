@@ -1,5 +1,5 @@
 <template>
-  <div id="preview" v-show="login === false">
+  <div id="preview" v-show="loginUI === false">
     <section id="profile">
       <div v-if="resume.profile">
         <h1>
@@ -80,8 +80,8 @@
       resume() {
         return this.$store.state.resume
       },
-      login() {
-        return this.$store.state.login
+      loginUI() {
+        return this.$store.state.loginUI
       }
     }
   }
