@@ -42,20 +42,20 @@
       },
       toLogin() {
         AV.User.logIn(this.form.username, this.form.password).then(function (loginedUser) {
-          this.$store.commit('setUser', {
-            id: loginedUser.attributes.id,
-            username: loginedUser.attributes.username
-          })
+          setUser(loginedUser.attributes.id, loginedUser.attributes.username)
         }, function (error) {
           if (error.code === 211) {
             alert('用户名不存在，请注册')
           }
         });
-
-
+        let currentUser = AV.User.current();
+        if (currentUser) {
+          console.log(currentUser)
+          this.$store.commit('setUser', {
+            username: currentUser.attributes.username
+          })
+        }
       },
-
-
       toRegister() {
         // 新建 AVUser 对象实例
         let user = new AV.User();

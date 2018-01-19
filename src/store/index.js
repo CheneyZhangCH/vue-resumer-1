@@ -8,7 +8,6 @@ export default new Vuex.Store({
     currentTab: 0,
     loginUI: false,
     user: {
-      id: '',
       username: '',
     },
     resume: {
@@ -117,7 +116,6 @@ export default new Vuex.Store({
       state.loginUI = false
     },
     setUser(state, payload) {
-      state.user.id = payload.id
       state.user.username = payload.username
       console.log(payload)
     }
