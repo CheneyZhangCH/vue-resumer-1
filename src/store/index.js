@@ -109,7 +109,7 @@ export default new Vuex.Store({
       let value = payload.value
       state.resume.contacts[newkey] = value
     },
-    toLogin(state) {
+    toLoginUI(state) {
       state.loginUI = true
     },
     cancelLogin(state) {

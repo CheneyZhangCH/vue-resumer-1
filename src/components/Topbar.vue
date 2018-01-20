@@ -7,38 +7,63 @@
         </div>
         <div class="actions" v-show="loginUI === false">
           <span v-show="canLogOut === true">  Welcome {{user.name}}</span>
-          <el-button plain v-on:click.native="toLogin()" v-show="canLogin === true">登陆</el-button>
-          <el-button plain v-on:click.native="toLogin()" v-show="canLogin === true">注册</el-button>
+          <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
+          <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
           <el-button plain v-on:click.native="toLogOut()" v-show="canLogOut === true">登出</el-button>
         </div>
       </div>
     </div>
-    <Login v-show="loginUI === true"></Login>
+
+    <div v-show="loginUI === true" class="login-wrapper">
+      <el-form class="form-wrapper">
+        <el-form-item label="用户名">
+          <el-input type="text" placeholder="请输入用户名" v-model="form.username"></el-input>
+        </el-form-item>
+        <el-form-item label="密码">
+          <el-input type="password" placeholder="请输入密码" v-model="form.password"></el-input>
+        </el-form-item>
+        <el-form-item class="button-wrapper">
+          <div> {{errorMassage}}</div>
+          <el-button class="buttons" type="primary" @click="toLogin()">登录</el-button>
+          <el-button class="buttons" type="primary" @click="toRegister()">注册</el-button>
+          <el-button class="buttons" v-on:click="canselLogin()">取消</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+
+
   </div>
 </template>
 
 <script>
-  import Login from './Login.vue'
 
   import AV from '../lib/leancloud'
+
+//  let currentUser = AV.User.current();
+  //  if (currentUser) {
+  //    console.log(currentUser)
+  //    this.$store.commit('setUser', {
+  //      username: currentUser.attributes.username
+  //    })
+  //  }
 
 
   export default {
     data() {
       return {
         canLogin: true,
-        canLogOut: false
+        canLogOut: false,
+        form: {
+          username: '',
+          password: ''
+        },
+        errorMassage: ''
       }
     },
 
-    components: {
-      Login: Login
-    },
+    components: {},
 
     computed: {
-      resume() {
-        return this.$store.state.resume
-      },
       loginUI() {
         return this.$store.state.loginUI
       },
@@ -48,8 +73,8 @@
     },
 
     methods: {
-      toLogin() {
-        this.$store.commit('toLogin')
+      toLoginUI() {
+        this.$store.commit('toLoginUI')
       },
       toLogOut() {
         AV.User.logOut();
@@ -59,6 +84,33 @@
           id: '',
           username: ''
         })
+      },
+      canselLogin() {
+        this.$store.commit('cancelLogin')
+      },
+      toLogin() {
+        AV.User.logIn(this.form.username, this.form.password).then(function (loginedUser) {
+          setUser(loginedUser.attributes.id, loginedUser.attributes.username)
+        }, function (error) {
+          if (error.code === 211) {
+            alert('用户名不存在，请注册')
+          }
+        });
+
+      },
+      toRegister() {
+        // 新建 AVUser 对象实例
+        let user = new AV.User();
+        // 设置用户名
+        user.setUsername(this.form.username);
+        // 设置密码
+        user.setPassword(this.form.password);
+        // 设置邮箱
+        user.signUp().then(function (loginedUser) {
+          alert('注册成功')
+          window.location.reload()
+        }, function (error) {
+        });
       },
     }
 
@@ -95,6 +147,28 @@
         .actions {
         }
 
+      }
+    }
+    .login-wrapper {
+      font-size: 14px;
+      color: rgb(153, 153, 153);
+      background: hsla(0, 0%, 0%, 0.2);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      .form-wrapper {
+        width: 240px;
+        .button-wrapper {
+          margin-top: 24px;
+          display: flex;
+          justify-content: space-around;
+        }
       }
     }
   }
