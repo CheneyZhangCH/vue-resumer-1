@@ -7,9 +7,7 @@ export default new Vuex.Store({
   state: {
     currentTab: 0,
     loginUI: false,
-    user: {
-      username: '',
-    },
+    username: '',
     resume: {
       profile: {
         name: "Cheney",
@@ -40,7 +38,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-     setCurrentTab(state, payload) {
+    setCurrentTab(state, payload) {
       state.currentTab = payload
     },
     addJob(state) {
@@ -109,11 +107,9 @@ export default new Vuex.Store({
       state.loginUI = false
     },
     setUser(state, payload) {
-      state.user.username = payload.username
       console.log(payload)
+      state.username = payload.username
     }
   },
-  actions: {
-
-  }
+  actions: {}
 })

@@ -6,10 +6,10 @@
           R
         </div>
         <div class="actions" v-show="loginUI === false">
-          <span v-show="canLogOut === true">  Welcome {{user.name}}</span>
+          <span v-show="username"> Welcome ...{{username}}</span>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
-          <el-button plain v-on:click.native="toLogOut()" v-show="canLogOut === true">登出</el-button>
+          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">登出</el-button>
         </div>
       </div>
     </div>
@@ -52,7 +52,6 @@
     data() {
       return {
         canLogin: true,
-        canLogOut: false,
         form: {
           username: '',
           password: ''
@@ -67,8 +66,8 @@
       loginUI() {
         return this.$store.state.loginUI
       },
-      user() {
-        return this.$store.state.user
+      username() {
+        return this.$store.state.username
       }
     },
 
@@ -83,10 +82,14 @@
 
 
       toLogin() {
-        AV.User.logIn(this.form.username, this.form.password).then(function (loginedUser) {
-          setUser(loginedUser.attributes.id, loginedUser.attributes.username)
-
-
+        AV.User.logIn(this.form.username, this.form.password).then((loginedUser) => {
+          console.log(loginedUser)
+          this.$store.commit('setUser', {
+              username: loginedUser.attributes.username
+            }
+          )
+          this.$store.commit('cancelLogin')
+          this.canLogin = false
 
         }, function (error) {
           if (error.code === 211) {
@@ -113,11 +116,11 @@
       toLogOut() {
         AV.User.logOut();
         let currentUser = AV.User.current();
-        console.log(currentUser)
         this.$store.commit('setUser', {
           id: '',
           username: ''
         })
+        this.canLogin = true
       },
     }
 
