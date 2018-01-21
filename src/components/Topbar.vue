@@ -39,7 +39,7 @@
 
   import AV from '../lib/leancloud'
 
-//  let currentUser = AV.User.current();
+  //  let currentUser = AV.User.current();
   //  if (currentUser) {
   //    console.log(currentUser)
   //    this.$store.commit('setUser', {
@@ -57,7 +57,7 @@
           username: '',
           password: ''
         },
-        errorMassage: ''
+        errorMassage: '',
       }
     },
 
@@ -76,28 +76,25 @@
       toLoginUI() {
         this.$store.commit('toLoginUI')
       },
-      toLogOut() {
-        AV.User.logOut();
-        let currentUser = AV.User.current();
-        console.log(currentUser)
-        this.$store.commit('setUser', {
-          id: '',
-          username: ''
-        })
-      },
+
       canselLogin() {
         this.$store.commit('cancelLogin')
       },
+
+
       toLogin() {
         AV.User.logIn(this.form.username, this.form.password).then(function (loginedUser) {
           setUser(loginedUser.attributes.id, loginedUser.attributes.username)
+
+
+
         }, function (error) {
           if (error.code === 211) {
             alert('用户名不存在，请注册')
           }
         });
-
       },
+
       toRegister() {
         // 新建 AVUser 对象实例
         let user = new AV.User();
@@ -107,10 +104,20 @@
         user.setPassword(this.form.password);
         // 设置邮箱
         user.signUp().then(function (loginedUser) {
-          alert('注册成功')
-          window.location.reload()
+          console.log(loginedUser)
+//          window.location.reload()
         }, function (error) {
         });
+      },
+
+      toLogOut() {
+        AV.User.logOut();
+        let currentUser = AV.User.current();
+        console.log(currentUser)
+        this.$store.commit('setUser', {
+          id: '',
+          username: ''
+        })
       },
     }
 

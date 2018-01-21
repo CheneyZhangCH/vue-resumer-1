@@ -40,13 +40,7 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    // increment(state, payload) {
-    //   state.count += payload
-    // },
-    // reducement(state, payload) {
-    //   state.count -= payload
-    // },
-    setCurrentTab(state, payload) {
+     setCurrentTab(state, payload) {
       state.currentTab = payload
     },
     addJob(state) {
@@ -73,7 +67,6 @@ export default new Vuex.Store({
     removeAward(state, index) {
       state.resume.awards.splice(index, 1)
     },
-
     updateProfile(state, payload) {
       let newkey = payload.key
       let value = payload.value
@@ -120,4 +113,7 @@ export default new Vuex.Store({
       console.log(payload)
     }
   },
+  actions: {
+
+  }
 })
