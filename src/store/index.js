@@ -7,7 +7,10 @@ export default new Vuex.Store({
   state: {
     currentTab: 0,
     loginUI: false,
-    username: '',
+    canLogin: false,
+    user: {
+      username: ''
+    },
     resume: {
       profile: {
         name: "Cheney",
@@ -17,18 +20,16 @@ export default new Vuex.Store({
         city: 'Shanghai'
       },
       jobs: [
-        {company: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'},
-        {company: '南通贝斯特1', period: '2015年至今1', content: '公司内部OA系统1'},
-        {company: '南通贝斯特2', period: '2015年至今2', content: '公司内部OA系统2'},
+        {company: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'}
       ],
       educations: [
-        {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'},
+        {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'}
       ],
       projects: [
-        {name: '在线简历编辑器', period: 'period', content: 'content'},
+        {name: '在线简历编辑器', period: 'period', content: 'content'}
       ],
       awards: [
-        {name: '优秀员工', period: 'period'},
+        {name: '优秀员工', period: 'period'}
       ],
       contacts: {
         phone: '',
@@ -40,6 +41,8 @@ export default new Vuex.Store({
   mutations: {
     setCurrentTab(state, payload) {
       state.currentTab = payload
+      console.log(JSON.stringify(state))
+      localStorage.setItem('state', JSON.stringify(state))
     },
     addJob(state) {
       state.resume.jobs.push({company: '', period: '', content: ''})
@@ -106,9 +109,18 @@ export default new Vuex.Store({
     cancelLogin(state) {
       state.loginUI = false
     },
+    canLogin(state, payload) {
+      state.canLogin = payload
+    },
     setUser(state, payload) {
-      console.log(payload)
-      state.username = payload.username
+      state.user.username = payload.username
+      localStorage.setItem('username', payload.username)
+    },
+    initState(state, payload) {
+      Object.assign(state, payload)
+    },
+    initUser(state, payload) {
+      state.user.username = payload
     }
   },
   actions: {}

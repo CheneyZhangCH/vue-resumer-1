@@ -6,9 +6,11 @@
           R
         </div>
         <div class="actions" v-show="loginUI === false">
-          <span v-show="username"> Welcome ...{{username}}</span>
+          <span class="welcome" v-show="user.username"> 欢迎您, {{user.username}}</span>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
+          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">保存</el-button>
+          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">预览</el-button>
           <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">登出</el-button>
         </div>
       </div>
@@ -51,7 +53,6 @@
   export default {
     data() {
       return {
-        canLogin: true,
         form: {
           username: '',
           password: ''
@@ -66,8 +67,11 @@
       loginUI() {
         return this.$store.state.loginUI
       },
-      username() {
-        return this.$store.state.username
+      user() {
+        return this.$store.state.user
+      },
+      canLogin() {
+        return this.$store.state.canLogin
       }
     },
 
@@ -89,8 +93,7 @@
             }
           )
           this.$store.commit('cancelLogin')
-          this.canLogin = false
-
+          this.$store.commit('canLogin', false)
         }, function (error) {
           if (error.code === 211) {
             alert('用户名不存在，请注册')
@@ -106,9 +109,15 @@
         // 设置密码
         user.setPassword(this.form.password);
         // 设置邮箱
-        user.signUp().then(function (loginedUser) {
+        user.signUp().then((loginedUser) => {
           console.log(loginedUser)
-//          window.location.reload()
+          this.$store.commit('setUser', {
+              username: loginedUser.attributes.username
+            }
+          )
+          this.$store.commit('cancelLogin')
+          this.$store.commit('canLogin', false)
+
         }, function (error) {
         });
       },
@@ -117,10 +126,9 @@
         AV.User.logOut();
         let currentUser = AV.User.current();
         this.$store.commit('setUser', {
-          id: '',
           username: ''
         })
-        this.canLogin = true
+        this.$store.commit('canLogin', true)
       },
     }
 
@@ -155,6 +163,9 @@
           color: white;
         }
         .actions {
+          .welcome {
+            margin-right: 16px;
+          }
         }
 
       }

@@ -39,13 +39,17 @@
       Preview,
     },
     store,
-    computed: {
-
-
-      // count(){
-      // $store.state 获取状态对象
-      //  return this.$store.state.count
-      // }
+    computed: {},
+    created() {
+      let state = localStorage.getItem('state')
+      let username = localStorage.getItem('username')
+      if (state) {
+        state = JSON.parse(state)
+      }
+      this.$store.commit('initState', state)
+      if (username !== '') {
+        this.$store.commit('initUser', username)
+      }
     },
     methods: {
 
