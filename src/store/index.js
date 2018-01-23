@@ -11,6 +11,7 @@ export default new Vuex.Store({
     user: {
       username: ''
     },
+    previewUI: false,
     resume: {
       profile: {
         name: "Cheney",
@@ -41,7 +42,6 @@ export default new Vuex.Store({
   mutations: {
     setCurrentTab(state, payload) {
       state.currentTab = payload
-      console.log(JSON.stringify(state))
       localStorage.setItem('state', JSON.stringify(state))
     },
     addJob(state) {
@@ -74,7 +74,6 @@ export default new Vuex.Store({
       state.resume.profile[newkey] = value
     },
     updateJob(state, payload) {
-      console.log(payload)
       let newkey = payload.key
       let value = payload.value
       let index = payload.index
@@ -116,12 +115,25 @@ export default new Vuex.Store({
       state.user.username = payload.username
       localStorage.setItem('username', payload.username)
     },
+    logoutUser(state) {
+      state.user.username = ''
+      localStorage.removeItem('username')
+      state.canLogin = true
+    },
     initState(state, payload) {
       Object.assign(state, payload)
     },
     initUser(state, payload) {
       state.user.username = payload
+    },
+    toSave(state) {
+      localStorage.setItem('state', JSON.stringify(state))
+    },
+    toPreview(state, payload) {
+      state.previewUI = payload
+    },
+    closePreview(state) {
+      state.previewUI = false
     }
   },
-  actions: {}
 })

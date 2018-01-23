@@ -1,5 +1,5 @@
 <template>
-  <div id="editor" v-show="loginUI === false">
+  <div id="editor" v-show="loginUI === false" v-if="!previewUI">
     <nav>
       <ol>
         <li v-for="i in items" v-bind:class="{active: currentTab === i}" v-on:click="currentTab = i">
@@ -70,6 +70,9 @@
       },
       loginUI() {
         return this.$store.state.loginUI
+      },
+      previewUI() {
+        return this.$store.state.previewUI
       }
     }
   }

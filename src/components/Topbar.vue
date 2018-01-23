@@ -1,5 +1,5 @@
 <template>
-  <div id="topbar">
+  <div id="topbar" v-show="!previewUI">
     <div class="container">
       <div class="content" v-show="loginUI === false">
         <div class="logo">
@@ -9,8 +9,8 @@
           <span class="welcome" v-show="user.username"> 欢迎您, {{user.username}}</span>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
           <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
-          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">保存</el-button>
-          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">预览</el-button>
+          <el-button plain v-on:click.native="toSave()" v-show="canLogin === false">保存</el-button>
+          <el-button plain v-on:click.native="toPreview()" v-show="canLogin === false">预览</el-button>
           <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">登出</el-button>
         </div>
       </div>
@@ -72,6 +72,9 @@
       },
       canLogin() {
         return this.$store.state.canLogin
+      },
+      previewUI() {
+        return this.$store.state.previewUI
       }
     },
 
@@ -87,13 +90,14 @@
 
       toLogin() {
         AV.User.logIn(this.form.username, this.form.password).then((loginedUser) => {
-          console.log(loginedUser)
           this.$store.commit('setUser', {
               username: loginedUser.attributes.username
             }
           )
           this.$store.commit('cancelLogin')
           this.$store.commit('canLogin', false)
+          localStorage.setItem('username', payload.username)
+
         }, function (error) {
           if (error.code === 211) {
             alert('用户名不存在，请注册')
@@ -110,13 +114,13 @@
         user.setPassword(this.form.password);
         // 设置邮箱
         user.signUp().then((loginedUser) => {
-          console.log(loginedUser)
           this.$store.commit('setUser', {
               username: loginedUser.attributes.username
             }
           )
           this.$store.commit('cancelLogin')
           this.$store.commit('canLogin', false)
+          localStorage.setItem('username', payload.username)
 
         }, function (error) {
         });
@@ -130,6 +134,14 @@
         })
         this.$store.commit('canLogin', true)
       },
+
+      toSave() {
+        this.$store.commit('toSave')
+      },
+
+      toPreview() {
+        this.$store.commit('toPreview', true)
+      }
     }
 
   }
