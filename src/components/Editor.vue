@@ -14,19 +14,19 @@
         <Profile v-bind:profile="resume.profile"></Profile>
       </li>
       <li v-bind:class="{active: currentTab === 1}">
-        <Jobs v-bind:jobs="resume.jobs"></Jobs>
+        <Contacts v-bind:contacts="resume.contacts"></Contacts>
       </li>
       <li v-bind:class="{active: currentTab === 2}">
-        <Educations v-bind:educations="resume.educations"></Educations>
+        <Jobs v-bind:jobs="resume.jobs"></Jobs>
       </li>
       <li v-bind:class="{active: currentTab === 3}">
-        <Projects v-bind:projects="resume.projects"></Projects>
+        <Educations v-bind:educations="resume.educations"></Educations>
       </li>
       <li v-bind:class="{active: currentTab === 4}">
-        <Awards v-bind:awards="resume.awards"></Awards>
+        <Projects v-bind:projects="resume.projects"></Projects>
       </li>
       <li v-bind:class="{active: currentTab === 5}">
-        <Contacts v-bind:contacts="resume.contacts"></Contacts>
+        <Skills v-bind:skills="resume.skills"></Skills>
       </li>
     </ol>
   </div>
@@ -38,7 +38,7 @@
   import Jobs from "./editor/Jobs.vue";
   import Educations from "./editor/Educations.vue";
   import Projects from "./editor/Projects.vue";
-  import Awards from "./editor/Awards.vue";
+  import Skills from "./editor/Skills.vue";
   import Contacts from "./editor/Contacts.vue";
 
   export default {
@@ -47,13 +47,13 @@
       Jobs: Jobs,
       Educations: Educations,
       Projects: Projects,
-      Awards: Awards,
+      Skills: Skills,
       Contacts: Contacts
     },
     data() {
       return {
         items: [0, 1, 2, 3, 4, 5],
-        icons: ['shenfenxinxi', 'gongzuo', 'xueli', 'projectunpressed', 'award4', 'phone1'],
+        icons: ['shenfenxinxi', 'phone1', 'gongzuo', 'xueli', 'projectunpressed', 'award4'],
       }
     },
     computed: {
@@ -82,10 +82,9 @@
 <style lang="scss" scoped>
 
   #editor {
-    border: 1px solid green;
-    min-height: 100px;
     display: flex;
     overflow: hidden;
+    width: 450px;
     nav {
       background: hsla(0, 0%, 0%, 0.2);
       width: 80px;

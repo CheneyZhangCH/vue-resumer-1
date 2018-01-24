@@ -4,10 +4,10 @@
     <el-form>
       <div class="container" v-model="contacts">
         <el-form-item v-for="(val, key) in contacts"
-                      v-bind:label="labels[key]"
+                      :label="labels[key]"
                       :key="key.id">
-          <el-input v-bind:value="contacts[key]"
-                    v-on:input.native="updateContacts($event, key)"
+          <el-input :value="contacts[key]"
+                    @input.native="updateContacts($event, key)"
                     placeholder="请输入相关内容">
           </el-input>
         </el-form-item>

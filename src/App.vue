@@ -30,25 +30,12 @@
         state = JSON.parse(state)
       }
       this.$store.commit('initState', state)
-      if (username !== '') {
-        this.$store.commit('initUser', username)
-        this.$store.commit('canLogin', false)
+      if (!username) {
+        this.$store.commit('initUser')
       }
     },
-    methods: {
-
-      //  add(){
-      // $store.commit('xxx') 出发状态变更
-      //    this.$store.commit('increment',10)
-      //  },
-      //  reduce(){
-      // $store.commit('xxx') 出发状态变更
-      //    this.$store.commit('reducement',5)
-      //  }
-      //}
-    }
+    methods: {}
   }
-
 </script>
 
 <style lang="scss">
@@ -73,7 +60,7 @@
       display: flex;
       flex-grow: 1;
       #editor {
-        min-width: 30em;
+        min-width: 24em;
         margin-right: 40px;
       }
       #preview {

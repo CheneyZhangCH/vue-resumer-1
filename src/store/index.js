@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     currentTab: 0,
     loginUI: false,
-    canLogin: false,
+    canLogin: true,
     user: {
       username: ''
     },
@@ -15,13 +15,18 @@ export default new Vuex.Store({
     resume: {
       profile: {
         name: "Cheney",
-        title: "Web Developer",
-        sex: 'male',
-        birth: '1988-02',
-        city: 'Shanghai'
+        title: "前端工程师",
+        sex: '男',
+        city: '上海',
+        birth: '1988-02'
+      },
+      contacts: {
+        phone: '18521563197',
+        qq: '809046240',
+        email: 'cheney_zhang@foxmail.com'
       },
       jobs: [
-        {company: '南通贝斯特', period: '2015年至今', content: '公司内部OA系统'}
+        {company: '南通贝斯特', start: '', end: '', period: '', content: '公司内部OA系统'}
       ],
       educations: [
         {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'}
@@ -29,14 +34,10 @@ export default new Vuex.Store({
       projects: [
         {name: '在线简历编辑器', period: 'period', content: 'content'}
       ],
-      awards: [
+      skills: [
         {name: '优秀员工', period: 'period'}
       ],
-      contacts: {
-        phone: '',
-        qq: '',
-        email: ''
-      }
+
     }
   },
   mutations: {
@@ -62,11 +63,11 @@ export default new Vuex.Store({
     removeProject(state, index) {
       state.resume.projects.splice(index, 1)
     },
-    addAward(state) {
-      state.resume.awards.push({name: '', period: '', content: ''})
+    addSkill(state) {
+      state.resume.skills.push({name: '', period: ''})
     },
-    removeAward(state, index) {
-      state.resume.awards.splice(index, 1)
+    removeSkill(state, index) {
+      state.resume.skills.splice(index, 1)
     },
     updateProfile(state, payload) {
       let newkey = payload.key
@@ -91,11 +92,11 @@ export default new Vuex.Store({
       let index = payload.index
       state.resume.projects[index][newkey] = value
     },
-    updateAward(state, payload) {
+    updateSkill(state, payload) {
       let newkey = payload.key
       let value = payload.value
       let index = payload.index
-      state.resume.awards[index][newkey] = value
+      state.resume.skills[index][newkey] = value
     },
     updateContacts(state, payload) {
       let newkey = payload.key
@@ -116,15 +117,16 @@ export default new Vuex.Store({
       localStorage.setItem('username', payload.username)
     },
     logoutUser(state) {
-      state.user.username = ''
-      localStorage.removeItem('username')
+      state.user.username = null
       state.canLogin = true
+      localStorage.removeItem('username')
     },
     initState(state, payload) {
       Object.assign(state, payload)
     },
-    initUser(state, payload) {
-      state.user.username = payload
+    initUser(state) {
+      state.user.username = null
+      state.canLogin = true
     },
     toSave(state) {
       localStorage.setItem('state', JSON.stringify(state))

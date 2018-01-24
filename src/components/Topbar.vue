@@ -25,7 +25,6 @@
           <el-input type="password" placeholder="请输入密码" v-model="form.password"></el-input>
         </el-form-item>
         <el-form-item class="button-wrapper">
-          <div> {{errorMassage}}</div>
           <el-button class="buttons" type="primary" @click="toLogin()">登录</el-button>
           <el-button class="buttons" type="primary" @click="toRegister()">注册</el-button>
           <el-button class="buttons" v-on:click="canselLogin()">取消</el-button>
@@ -77,17 +76,13 @@
         return this.$store.state.previewUI
       }
     },
-
     methods: {
       toLoginUI() {
         this.$store.commit('toLoginUI')
       },
-
       canselLogin() {
         this.$store.commit('cancelLogin')
       },
-
-
       toLogin() {
         AV.User.logIn(this.form.username, this.form.password).then((loginedUser) => {
           this.$store.commit('setUser', {
@@ -97,14 +92,12 @@
           this.$store.commit('cancelLogin')
           this.$store.commit('canLogin', false)
           localStorage.setItem('username', payload.username)
-
         }, function (error) {
           if (error.code === 211) {
             alert('用户名不存在，请注册')
           }
         });
       },
-
       toRegister() {
         // 新建 AVUser 对象实例
         let user = new AV.User();
@@ -121,18 +114,13 @@
           this.$store.commit('cancelLogin')
           this.$store.commit('canLogin', false)
           localStorage.setItem('username', payload.username)
-
         }, function (error) {
         });
       },
-
       toLogOut() {
         AV.User.logOut();
-        let currentUser = AV.User.current();
-        this.$store.commit('setUser', {
-          username: ''
-        })
-        this.$store.commit('canLogin', true)
+        this.$store.commit('logoutUser')
+//        this.$store.commit('canLogin', true)
       },
 
       toSave() {

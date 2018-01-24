@@ -46,10 +46,10 @@
           </li>
         </ul>
       </section>
-      <section v-if="resume.awards">
+      <section v-if="resume.skills">
         <h2>获奖经历</h2>
         <ul>
-          <li v-for="item in resume.awards">
+          <li v-for="item in resume.skills">
             <h4> {{item.name}}</h4>
             <h4> {{item.period}}</h4>
           </li>

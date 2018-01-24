@@ -1,24 +1,22 @@
 <template>
   <div>
-    <h2>个人项目</h2>
+    <h2>技能点</h2>
     <el-form>
-      <div class="container" v-for="(project, index) in projects">
+      <div class="container" v-for="(skill, index) in skills">
         <el-form-item v-for="key in keys"
                       :label="labels[key]"
                       :key="key.id">
-          <el-input type="textarea"
-                    :autosize="{ minRows: 1, maxRows: 4}"
-                    :value="project[key]"
-                    @input.native="updateProject($event, key, index)"
+          <el-input :value="skill[key]"
+                    @input.native="updateSkill($event, key, index)"
                     placeholder="请输入相关内容">
           </el-input>
         </el-form-item>
-        <div @click="removeProject(index)">
+        <div @click="removeSkill(index)">
           <i class="el-icon-close remove-button"></i>
         </div>
         <hr>
       </div>
-      <el-button class="edit-button" @click="addProject()">添加一项</el-button>
+      <el-button class="edit-button" @click="addSkill">添加一项</el-button>
     </el-form>
   </div>
 </template>
@@ -28,35 +26,34 @@
     data() {
       return {
         labels: {
-          name: '项目名称',
-          period: '时间',
-          content: '项目内容'
+          name: '技能',
+          period: '熟练度',
         }
       }
     },
     computed: {
       keys() {
-        return Object.keys(this.$store.state.resume.projects[0])
+        return Object.keys(this.$store.state.resume.skills[0])
       },
-      projects() {
-        return this.$store.state.resume.projects;
+      skills() {
+        return this.$store.state.resume.skills;
       }
     },
     methods: {
-      addProject() {
-        this.$store.commit('addProject')
+      addSkill() {
+        this.$store.commit('addSkill')
       },
-      removeProject(index) {
-        this.$store.commit('removeProject', index)
+      removeSkill(index) {
+        this.$store.commit('removeSkill', index)
       },
-      updateProject($event, key, index) {
-        this.$store.commit('updateProject', {
+      updateSkill($event, key, index) {
+        this.$store.commit('updateSkill', {
           value: $event.target.value,
           key: key,
           index: index
         })
       }
-    },
+    }
   }
 </script>
 
@@ -76,5 +73,4 @@
   .edit-button {
     margin-top: 16px;
   }
-
 </style>

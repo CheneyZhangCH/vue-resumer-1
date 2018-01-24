@@ -4,17 +4,19 @@
     <el-form>
       <div class="container" v-for="(education, index) in educations">
         <el-form-item v-for="key in keys"
-                      v-bind:label="labels[key]"
-                      v-bind:key="key.id">
-          <el-input v-bind:value="education[key]"
-                    v-on:input.native="updateEducation($event, key, index)"
+                      :label="labels[key]"
+                      :key="key.id">
+          <el-input :value="education[key]"
+                    @input.native="updateEducation($event, key, index)"
                     placeholder="请输入相关内容">
           </el-input>
         </el-form-item>
-        <i class="el-icon-delete remove-button" v-on:click="removeEducation(index)"></i>
+        <div @click="removeEducation(index)">
+          <i class="el-icon-close remove-button"></i>
+        </div>
         <hr>
       </div>
-      <el-button class="edit-button" v-on:click="addEducation()">添加一项</el-button>
+      <el-button class="edit-button" @click="addEducation()">添加一项</el-button>
     </el-form>
   </div>
 </template>
