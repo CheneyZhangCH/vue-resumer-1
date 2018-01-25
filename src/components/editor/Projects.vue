@@ -6,11 +6,12 @@
         <el-form-item v-for="key in keys"
                       :label="labels[key]"
                       :key="key.id">
-          <el-input type="textarea"
-                    :autosize="{ minRows: 1, maxRows: 4}"
-                    :value="project[key]"
-                    @input.native="updateProject($event, key, index)"
-                    placeholder="请输入相关内容">
+          <el-input
+            type="textarea"
+            :autosize="{ minRows: 1, maxRows: 4}"
+            :value="project[key]"
+            @input.native="updateProject($event, key, index)"
+            placeholder="请输入相关内容">
           </el-input>
         </el-form-item>
         <div @click="removeProject(index)">

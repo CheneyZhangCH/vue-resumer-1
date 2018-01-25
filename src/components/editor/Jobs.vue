@@ -2,56 +2,26 @@
   <div>
     <h2>工作经历</h2>
     <el-form>
-      <div class="container" v-for="(job, index) in jobs">
-
-        <el-form-item label="公司">
-          <el-input :value="job.company"
-                    @input.native="updateJob($event,'company',index)"
-                    placeholder="请输入相关内容">
-          </el-input>
-        </el-form-item>
-
-        <p>{{jobs}}</p>
-        <p>{{value6}}</p>
-        <el-form-item label="日期">
-
-          <el-date-picker
-            v-model="value6"
-            type="daterange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期">
-          </el-date-picker>
-        </el-form-item>
-
-
-        <!--<el-date-picker-->
-        <!--:value="job.period"-->
-        <!--@change.native="updateJob($event, 'period', index)"-->
-        <!--type="daterange"-->
-        <!--range-separator="至"-->
-        <!--start-placeholder="开始日期"-->
-        <!--end-placeholder="结束日期">-->
-        <!--</el-date-picker>-->
-        <!--</el-form-item>-->
-
-
-        <el-form-item label="工作内容">
-          <el-input :value="job.content"
-                    @input.native="updateJob($event, 'content', index)"
-                    placeholder="请输入相关内容">
-          </el-input>
-        </el-form-item>
-
-
-        <!--<el-form-item v-for="key in keys"-->
-        <!--:label="labels[key]"-->
-        <!--:key="key.id">-->
-        <!--<el-input :value="job[key]"-->
-        <!--@input.native="updateJob($event, key, index)"-->
-        <!--placeholder="请输入相关内容">-->
-        <!--</el-input>-->
-        <!--</el-form-item>-->
+      <div class="container" v-for="(item, index) in jobs">
+        <div v-for="(val, key) in item">
+          <el-form-item :label="labels[key]"
+                        :key="key.id">
+            <el-date-picker v-if="key === 'from' || key === 'to'"
+                            v-bind:value="val"
+                            v-on:input="updateJob($event, key, index)"
+                            :id="key"
+                            type="month"
+                            value-format='yyyy.MM'
+                            placeholder="选择日期"></el-date-picker>
+            <el-input v-else
+                      type="textarea"
+                      :autosize="{ minRows: 1.3, maxRows: 4}"
+                      :value="item[key]"
+                      @input.native="updateJob($event, key, index)"
+                      placeholder="请输入相关内容">
+            </el-input>
+          </el-form-item>
+        </div>
         <div @click="removeJob(index)">
           <i class="el-icon-close  remove-button"></i>
         </div>
@@ -68,30 +38,47 @@
       return {
         labels: {
           company: '公司',
-          period: '时间',
+          from: '自',
+          to: '至',
           content: '工作内容'
         },
-        value6: ''
+        value1: '2018-01'
       }
     },
+    watch: {},
     computed: {
       keys() {
         return Object.keys(this.$store.state.resume.jobs[0])
-      },
+      }
+      ,
       jobs() {
         return this.$store.state.resume.jobs;
       }
-    },
+    }
+    ,
     methods: {
+      test($event, key) {
+        console.log($event)
+        console.log(key);
+      },
       addJob() {
         this.$store.commit('addJob')
-      },
+      }
+      ,
       removeJob(index) {
         this.$store.commit('removeJob', index)
-      },
+      }
+      ,
       updateJob($event, key, index) {
+        let newVal = ''
+        if (typeof $event === 'string') {
+          newVal = $event
+        } else {
+          newVal = $event.target.value
+        }
+        console.log(newVal)
         this.$store.commit('updateJob', {
-          value: $event.target.value,
+          value: newVal,
           key: key,
           index: index
         })

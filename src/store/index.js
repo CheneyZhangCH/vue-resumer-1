@@ -17,8 +17,8 @@ export default new Vuex.Store({
         name: "Cheney",
         title: "前端工程师",
         sex: '男',
+        age: '20',
         city: '上海',
-        birth: '1988-02'
       },
       contacts: {
         phone: '18521563197',
@@ -26,7 +26,7 @@ export default new Vuex.Store({
         email: 'cheney_zhang@foxmail.com'
       },
       jobs: [
-        {company: '南通贝斯特', start: '', end: '', period: '', content: '公司内部OA系统'}
+        {company: '南通贝斯特', from: '', to: '', content: '公司内部OA系统'}
       ],
       educations: [
         {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'}
@@ -75,6 +75,7 @@ export default new Vuex.Store({
       state.resume.profile[newkey] = value
     },
     updateJob(state, payload) {
+      console.log(payload);
       let newkey = payload.key
       let value = payload.value
       let index = payload.index

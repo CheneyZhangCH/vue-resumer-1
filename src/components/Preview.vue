@@ -21,7 +21,9 @@
         <ul>
           <li v-for="item in resume.jobs">
             <h4> {{item.company}}</h4>
-            <h4> {{item.period}}</h4>
+            <h4> {{item.from}}</h4>
+            <p>至</p>
+            <h4> {{item.to}}</h4>
             <h4> {{item.content}}</h4>
           </li>
         </ul>
