@@ -35,7 +35,7 @@ export default new Vuex.Store({
         {name: '在线简历编辑器', content: 'content'}
       ],
       skills: [
-        {name: '优秀员工', content: 'period'}
+        {name: '优秀员工', content: 0}
       ],
 
     }

@@ -6,10 +6,22 @@
         <el-form-item v-for="(val, key) in item"
                       :label="labels[key]"
                       :key="key.id">
-          <el-input :value="item[key]"
-                    @input.native="updateSkill($event, key, index)"
-                    placeholder="请输入相关内容">
-          </el-input>
+          <div v-if="key === 'content'">
+            <el-slider
+              :value="value1"
+              @change="test($event)"
+              :step="10"
+              show-stops>
+            </el-slider>
+          </div>
+
+          <div v-else>
+            <el-input :value="item[key]"
+                      @input.native="updateSkill($event, key, index)"
+                      placeholder="请输入相关内容">
+            </el-input>
+          </div>
+
         </el-form-item>
         <div @click="removeSkill(index)">
           <i class="el-icon-close remove-button"></i>
@@ -28,7 +40,8 @@
         labels: {
           name: '技能',
           content: '熟练度',
-        }
+        },
+        value1: 0
       }
     },
     computed: {
@@ -40,6 +53,10 @@
       }
     },
     methods: {
+      test($event) {
+        console.log($event);
+        this.value1 = $event
+      },
       addSkill() {
         this.$store.commit('addSkill')
       },
@@ -47,8 +64,16 @@
         this.$store.commit('removeSkill', index)
       },
       updateSkill($event, key, index) {
+        console.log($event)
+        let newVal
+        if (key === 'content') {
+          newVal = Number($event)
+        } else {
+          newVal = $event.target.value
+        }
+        console.log(newVal);
         this.$store.commit('updateSkill', {
-          value: $event.target.value,
+          value: newVal,
           key: key,
           index: index
         })
