@@ -29,13 +29,13 @@ export default new Vuex.Store({
         {company: '南通贝斯特', from: '', to: '', content: '公司内部OA系统'}
       ],
       educations: [
-        {name: '大连理工大学', period: '2007-09~2011-07', content: '学士'}
+        {name: '大连理工大学', from: '', to: '', content: '学士'}
       ],
       projects: [
-        {name: '在线简历编辑器', period: 'period', content: 'content'}
+        {name: '在线简历编辑器', content: 'content'}
       ],
       skills: [
-        {name: '优秀员工', period: 'period'}
+        {name: '优秀员工', content: 'period'}
       ],
 
     }
@@ -75,7 +75,6 @@ export default new Vuex.Store({
       state.resume.profile[newkey] = value
     },
     updateJob(state, payload) {
-      console.log(payload);
       let newkey = payload.key
       let value = payload.value
       let index = payload.index

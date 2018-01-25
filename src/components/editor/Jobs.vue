@@ -6,20 +6,29 @@
         <div v-for="(val, key) in item">
           <el-form-item :label="labels[key]"
                         :key="key.id">
-            <el-date-picker v-if="key === 'from' || key === 'to'"
-                            v-bind:value="val"
-                            v-on:input="updateJob($event, key, index)"
-                            :id="key"
+            <el-date-picker class="date-picker"
+                            v-if="key === 'from' || key === 'to'"
+                            :value="val"
+                            @input="updateJob($event, key, index)"
+                            :id="`${item.name}+${key}`"
                             type="month"
+                            size="large"
                             value-format='yyyy.MM'
                             placeholder="选择日期"></el-date-picker>
-            <el-input v-else
+            <el-input v-else-if="key === 'content'"
                       type="textarea"
                       :autosize="{ minRows: 1.3, maxRows: 4}"
                       :value="item[key]"
                       @input.native="updateJob($event, key, index)"
                       placeholder="请输入相关内容">
             </el-input>
+            <el-input v-else
+                      :value="item[key]"
+                      @input.native="updateJob($event, key, index)"
+                      placeholder="请输入相关内容">
+            </el-input>
+
+
           </el-form-item>
         </div>
         <div @click="removeJob(index)">
@@ -57,10 +66,6 @@
     }
     ,
     methods: {
-      test($event, key) {
-        console.log($event)
-        console.log(key);
-      },
       addJob() {
         this.$store.commit('addJob')
       }
@@ -76,7 +81,6 @@
         } else {
           newVal = $event.target.value
         }
-        console.log(newVal)
         this.$store.commit('updateJob', {
           value: newVal,
           key: key,

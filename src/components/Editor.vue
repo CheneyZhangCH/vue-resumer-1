@@ -84,10 +84,10 @@
   #editor {
     display: flex;
     overflow: hidden;
-    width: 450px;
+    width: 320px;
     nav {
       background: hsla(0, 0%, 0%, 0.2);
-      width: 80px;
+      width: 64px;
       height: 100%;
       text-align: center;
       li {

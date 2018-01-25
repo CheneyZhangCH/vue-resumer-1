@@ -60,7 +60,7 @@
       display: flex;
       flex-grow: 1;
       #editor {
-        min-width: 24em;
+        min-width: 20em;
         margin-right: 40px;
       }
       #preview {

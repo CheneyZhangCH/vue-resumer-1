@@ -2,11 +2,11 @@
   <div>
     <h2>技能点</h2>
     <el-form>
-      <div class="container" v-for="(skill, index) in skills">
-        <el-form-item v-for="key in keys"
+      <div class="container" v-for="(item, index) in skills">
+        <el-form-item v-for="(val, key) in item"
                       :label="labels[key]"
                       :key="key.id">
-          <el-input :value="skill[key]"
+          <el-input :value="item[key]"
                     @input.native="updateSkill($event, key, index)"
                     placeholder="请输入相关内容">
           </el-input>
@@ -27,7 +27,7 @@
       return {
         labels: {
           name: '技能',
-          period: '熟练度',
+          content: '熟练度',
         }
       }
     },

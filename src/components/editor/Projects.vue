@@ -2,17 +2,24 @@
   <div>
     <h2>个人项目</h2>
     <el-form>
-      <div class="container" v-for="(project, index) in projects">
-        <el-form-item v-for="key in keys"
+      <div class="container" v-for="(item, index) in projects">
+        <el-form-item v-for="(val, key) in item"
                       :label="labels[key]"
                       :key="key.id">
-          <el-input
-            type="textarea"
-            :autosize="{ minRows: 1, maxRows: 4}"
-            :value="project[key]"
-            @input.native="updateProject($event, key, index)"
-            placeholder="请输入相关内容">
+          <el-input v-if="key === 'content'"
+                    type="textarea"
+                    :autosize="{ minRows: 1.3, maxRows: 4}"
+                    :value="item[key]"
+                    @input.native="updateProject($event, key, index)"
+                    placeholder="请输入相关内容">
           </el-input>
+          <el-input v-else
+                    :value="item[key]"
+                    @input.native="updateProject($event, key, index)"
+                    placeholder="请输入相关内容">
+          </el-input>
+
+
         </el-form-item>
         <div @click="removeProject(index)">
           <i class="el-icon-close remove-button"></i>
@@ -30,8 +37,7 @@
       return {
         labels: {
           name: '项目名称',
-          period: '时间',
-          content: '项目内容'
+          content: '预览地址'
         }
       }
     },
