@@ -10,23 +10,23 @@
                     type="textarea"
                     :autosize="{ minRows: 1.3, maxRows: 4}"
                     :value="item[key]"
-                    @input.native="updateProject($event, key, index)"
+                    @input.native="updateSkillProject($event, key, index)"
                     placeholder="请输入相关内容"
                     clearable>>
           </el-input>
           <el-input v-else
                     :value="item[key]"
-                    @input.native="updateProject($event, key, index)"
+                    @input.native="updateSkillProject($event, key, index)"
                     placeholder="请输入相关内容"
                     clearable>>
           </el-input>
         </el-form-item>
-        <div @click="removeProject(index)">
+        <div @click="removeSkillProject(index)">
           <i class="el-icon-close remove-button"></i>
         </div>
         <hr>
       </div>
-      <el-button class="edit-button" @click="addProject()">添加一项</el-button>
+      <el-button class="edit-button" @click="addSkillProject()">添加</el-button>
     </el-form>
   </div>
 </template>
@@ -50,15 +50,19 @@
       }
     },
     methods: {
-      addProject() {
-        this.$store.commit('addProject')
+      addSkillProject() {
+        this.$store.commit('addSkillProject', 'projects')
       },
-      removeProject(index) {
-        this.$store.commit('removeProject', index)
+      removeSkillProject(index) {
+        this.$store.commit('removeSkillProject', {
+          index: index,
+          key: 'projects'
+        })
       },
-      updateProject($event, key, index) {
+      updateSkillProject($event, key, index) {
         this.$store.commit('updateProject', {
           value: $event.target.value,
+          mainKey: 'projects',
           key: key,
           index: index
         })

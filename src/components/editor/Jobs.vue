@@ -9,8 +9,8 @@
             <el-date-picker class="date-picker"
                             v-if="key === 'from' || key === 'to'"
                             :value="val"
-                            @input="updateJob($event, key, index)"
-                            :id="`${item.name}+${key}`"
+                            @input="updateJobEducation($event, key, index)"
+                            :id="`jobs+${item.name}+${key}`"
                             type="month"
                             size="large"
                             value-format='yyyy.MM'
@@ -21,26 +21,24 @@
                       type="textarea"
                       :autosize="{ minRows: 1.3, maxRows: 4}"
                       :value="item[key]"
-                      @input.native="updateJob($event, key, index)"
+                      @input.native="updateJobEducation($event, key, index)"
                       placeholder="请输入相关内容"
                       clearable>>
             </el-input>
             <el-input v-else
                       :value="item[key]"
-                      @input.native="updateJob($event, key, index)"
+                      @input.native="updateJobEducation($event, key, index)"
                       placeholder="请输入相关内容"
-                      clearable>>
+                      clearable>
             </el-input>
-
-
           </el-form-item>
         </div>
-        <div @click="removeJob(index)">
+        <div @click="removeJobEducation(index)">
           <i class="el-icon-close  remove-button"></i>
         </div>
         <hr>
       </div>
-      <el-button class="edit-button" @click="addJob()">添加一项</el-button>
+      <el-button class="edit-button" @click="addJobEducation()">添加</el-button>
     </el-form>
   </div>
 </template>
@@ -50,15 +48,13 @@
     data() {
       return {
         labels: {
-          company: '公司',
+          name: '公司',
           from: '自',
           to: '至',
           content: '工作内容'
         },
-        value1: '2018-01'
       }
     },
-    watch: {},
     computed: {
       keys() {
         return Object.keys(this.$store.state.resume.jobs[0])
@@ -70,26 +66,33 @@
     }
     ,
     methods: {
-      addJob() {
-        this.$store.commit('addJob')
-      }
-      ,
-      removeJob(index) {
-        this.$store.commit('removeJob', index)
-      }
-      ,
-      updateJob($event, key, index) {
+      addJobEducation() {
+        this.$store.commit('addJobEducation', 'jobs')
+      },
+      removeJobEducation(index) {
+        this.$store.commit('removeJobEducation', {
+          index: index,
+          key: 'jobs'
+        },)
+      },
+
+      updateJobEducation($event, key, index) {
         let newVal = ''
         if (typeof $event === 'string') {
           newVal = $event
         } else {
           newVal = $event.target.value
         }
-        this.$store.commit('updateJob', {
+        this.$store.commit('updateJobEducation', {
           value: newVal,
+          mainKey: 'jobs',
           key: key,
           index: index
         })
+
+      },
+      updateJob($event, key, index) {
+
       }
     }
   }

@@ -26,18 +26,17 @@ export default new Vuex.Store({
         email: 'cheney_zhang@foxmail.com'
       },
       jobs: [
-        {company: '南通贝斯特', from: '', to: '', content: '公司内部OA系统'}
+        {name: '南通贝斯特', from: '2018.02', to: '2018.02', content: '公司内部OA系统'}
       ],
       educations: [
-        {name: '大连理工大学', from: '', to: '', content: '学士'}
+        {name: '大连理工大学', from: '2018.02', to: '2018.02', content: '学士'}
       ],
       projects: [
-        {name: '在线简历编辑器', content: 'content'}
+        {name: '在线简历编辑器', content: 'www.baidubuzhidao.com'}
       ],
       skills: [
         {name: 'Javascript', content: 0}
       ],
-
     }
   },
   mutations: {
@@ -45,65 +44,55 @@ export default new Vuex.Store({
       state.currentTab = payload
       localStorage.setItem('state', JSON.stringify(state))
     },
-    addJob(state) {
-      state.resume.jobs.push({company: '', from: '', to: '', content: ''})
+    addJobEducation(state, payload) {
+      state.resume[payload].push({name: '', from: '', to: '', content: ''})
     },
-    removeJob(state, index) {
-      state.resume.jobs.splice(index, 1)
+    removeJobEducation(state, payload) {
+      let index = payload.index
+      let key = payload.key
+      state.resume[key].splice(index, 1)
     },
-    addEducation(state) {
-      state.resume.educations.push({name: '', from: '', to: '', content: ''})
+    updateJobEducation(state, payload) {
+      let mainKey = payload.mainKey
+      let key = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume[mainKey][index][key] = value
+      console.log(state.resume);
     },
-    removeEducation(state, index) {
-      state.resume.educations.splice(index, 1)
+
+
+    addSkillProject(state, payload) {
+      state.resume[payload].push({name: '', content: ''})
     },
-    addProject(state) {
-      state.resume.projects.push({name: '', content: ''})
+    removeSkillProject(state, payload) {
+      let index = payload.index
+      let key = payload.key
+      state.resume[key].splice(index, 1)
     },
-    removeProject(state, index) {
-      state.resume.projects.splice(index, 1)
+
+    updateSkillProject(state, payload) {
+      let mainKey = payload.mainKey
+      let key = payload.key
+      let value = payload.value
+      let index = payload.index
+      state.resume[mainKey][index][key] = value
+      console.log(state.resume);
     },
-    addSkill(state) {
-      state.resume.skills.push({name: '', content: ''})
-    },
-    removeSkill(state, index) {
-      state.resume.skills.splice(index, 1)
-    },
+
+    //
     updateProfile(state, payload) {
       let newkey = payload.key
       let value = payload.value
       state.resume.profile[newkey] = value
-    },
-    updateJob(state, payload) {
-      let newkey = payload.key
-      let value = payload.value
-      let index = payload.index
-      state.resume.jobs[index][newkey] = value
-    },
-    updateEducation(state, payload) {
-      let newkey = payload.key
-      let value = payload.value
-      let index = payload.index
-      state.resume.educations[index][newkey] = value
-    },
-    updateProject(state, payload) {
-      let newkey = payload.key
-      let value = payload.value
-      let index = payload.index
-      state.resume.projects[index][newkey] = value
-    },
-    updateSkill(state, payload) {
-      console.log(payload);
-      let newkey = payload.key
-      let value = payload.value
-      let index = payload.index
-      state.resume.skills[index][newkey] = value
     },
     updateContacts(state, payload) {
       let newkey = payload.key
       let value = payload.value
       state.resume.contacts[newkey] = value
     },
+
+    //
     toLoginUI(state) {
       state.loginUI = true
     },

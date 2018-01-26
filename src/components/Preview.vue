@@ -20,7 +20,7 @@
         <h2>工作经验</h2>
         <ul>
           <li v-for="item in resume.jobs">
-            <h4> {{item.company}}</h4>
+            <h4> {{item.name}}</h4>
             <h4> {{item.from}}</h4>
             <p>至</p>
             <h4> {{item.to}}</h4>
@@ -45,17 +45,16 @@
         <ul>
           <li v-for="item in resume.projects">
             <h4> {{item.name}}</h4>
-            <h4> {{item.period}}</h4>
             <h4> {{item.content}}</h4>
           </li>
         </ul>
       </section>
       <section v-if="resume.skills">
-        <h2>获奖经历</h2>
+        <h2>技能点</h2>
         <ul>
           <li v-for="item in resume.skills">
             <h4> {{item.name}}</h4>
-            <h4> {{item.period}}</h4>
+            <h4> {{item.content}}</h4>
           </li>
         </ul>
       </section>

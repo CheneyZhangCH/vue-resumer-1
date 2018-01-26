@@ -10,7 +10,7 @@
             <el-date-picker v-if="key === 'from' || key === 'to'"
                             v-bind:value="val"
                             v-on:input="updateEducation($event, key, index)"
-                            :id="`${item.name}+${key}`"
+                            :id="`educations+${item.name}+${key}`"
                             type="month"
                             size="large"
                             value-format='yyyy.MM'
@@ -31,12 +31,12 @@
             </el-input>
           </el-form-item>
         </div>
-        <div @click="removeEducation(index)">
+        <div @click="removeJobEducation(index)">
           <i class="el-icon-close  remove-button"></i>
         </div>
         <hr>
       </div>
-      <el-button class="edit-button" @click="addEducation()">添加一项</el-button>
+      <el-button class="edit-button" @click="addJobEducation()">添加</el-button>
     </el-form>
 
   </div>
@@ -65,11 +65,14 @@
       }
     },
     methods: {
-      addEducation() {
-        this.$store.commit('addEducation')
+      addJobEducation() {
+        this.$store.commit('addJobEducation', 'educations')
       },
-      removeEducation(index) {
-        this.$store.commit('removeEducation', index)
+      removeJobEducation(index) {
+        this.$store.commit('removeJobEducation', {
+          index: index,
+          key: 'educations'
+        })
       },
       updateEducation($event, key, index) {
         let newVal = ''

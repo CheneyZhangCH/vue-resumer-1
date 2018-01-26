@@ -11,26 +11,24 @@
             <el-slider
               :label="labels[key]"
               :value="val"
-              @input="updateSkill($event, key, index)"
+              @input="updateSkillProject($event, key, index)"
               :step="10">
             </el-slider>
           </div>
-
           <div v-else>
             <el-input :value="item[key]"
-                      @input.native="updateSkill($event, key, index)"
+                      @input.native="updateSkillProject($event, key, index)"
                       placeholder="请输入相关内容"
                       clearable>
             </el-input>
           </div>
-
         </el-form-item>
-        <div @click="removeSkill(index)">
+        <div @click="removeSkillProject(index)">
           <i class="el-icon-close remove-button"></i>
         </div>
         <hr>
       </div>
-      <el-button class="edit-button" @click="addSkill">添加一项</el-button>
+      <el-button class="edit-button" @click="addSkillProject">添加</el-button>
     </el-form>
   </div>
 </template>
@@ -55,18 +53,16 @@
       }
     },
     methods: {
-//      test($event, key, index) {
-//        console.log($event)
-//        console.log(key);
-//        console.log(index);
-//      },
-      addSkill() {
-        this.$store.commit('addSkill')
+      addSkillProject() {
+        this.$store.commit('addSkillProject', 'skills')
       },
-      removeSkill(index) {
-        this.$store.commit('removeSkill', index)
+      removeSkillProject(index) {
+        this.$store.commit('removeSkillProject', {
+          index: index,
+          key: 'skills'
+        })
       },
-      updateSkill($event, key, index) {
+      updateSkillProject($event, key, index) {
         let newVal
         if (key === 'content') {
           newVal = $event
@@ -74,7 +70,8 @@
           newVal = $event.target.value
         }
         console.log(newVal);
-        this.$store.commit('updateSkill', {
+        this.$store.commit('updateSkillProject', {
+          mainKey: 'skills',
           value: newVal,
           key: key,
           index: index
