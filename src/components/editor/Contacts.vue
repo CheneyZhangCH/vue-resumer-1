@@ -8,7 +8,8 @@
                       :key="key.id">
           <el-input :value="contacts[key]"
                     @input.native="updateContacts($event, key)"
-                    placeholder="请输入相关内容">
+                    placeholder="请输入相关内容"
+                    clearable>
           </el-input>
         </el-form-item>
       </div>

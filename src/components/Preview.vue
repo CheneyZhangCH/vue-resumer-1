@@ -1,7 +1,7 @@
 <template>
-  <div id="preview" v-bind:class="{active: previewUI}" v-show="loginUI === false">
+  <div id="preview" :class="{active: previewUI}" v-show="loginUI === false">
     <div class="preview-wrapper">
-      <section class="close-icon-wrapper" v-on:click="closePreview()" v-show="previewUI">
+      <section class="close-icon-wrapper" @click="closePreview()" v-show="previewUI">
         <i class="el-icon-close" v-show="previewUI"></i>
       </section>
 

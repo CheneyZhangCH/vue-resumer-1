@@ -20,12 +20,14 @@
                       :autosize="{ minRows: 1.3, maxRows: 4}"
                       :value="item[key]"
                       @input.native="updateEducation($event, key, index)"
-                      placeholder="请输入相关内容">
+                      placeholder="请输入相关内容"
+                      clearable>
             </el-input>
             <el-input v-else
                       :value="item[key]"
                       @input.native="updateEducation($event, key, index)"
-                      placeholder="请输入相关内容">
+                      placeholder="请输入相关内容"
+                      clearable>
             </el-input>
           </el-form-item>
         </div>

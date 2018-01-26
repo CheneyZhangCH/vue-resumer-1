@@ -35,7 +35,7 @@ export default new Vuex.Store({
         {name: '在线简历编辑器', content: 'content'}
       ],
       skills: [
-        {name: '优秀员工', content: 0}
+        {name: 'Javascript', content: 0}
       ],
 
     }
@@ -46,25 +46,25 @@ export default new Vuex.Store({
       localStorage.setItem('state', JSON.stringify(state))
     },
     addJob(state) {
-      state.resume.jobs.push({company: '', period: '', content: ''})
+      state.resume.jobs.push({company: '', from: '', to: '', content: ''})
     },
     removeJob(state, index) {
       state.resume.jobs.splice(index, 1)
     },
     addEducation(state) {
-      state.resume.educations.push({name: '', period: '', content: ''})
+      state.resume.educations.push({name: '', from: '', to: '', content: ''})
     },
     removeEducation(state, index) {
       state.resume.educations.splice(index, 1)
     },
     addProject(state) {
-      state.resume.projects.push({name: '', period: '', content: ''})
+      state.resume.projects.push({name: '', content: ''})
     },
     removeProject(state, index) {
       state.resume.projects.splice(index, 1)
     },
     addSkill(state) {
-      state.resume.skills.push({name: '', period: ''})
+      state.resume.skills.push({name: '', content: ''})
     },
     removeSkill(state, index) {
       state.resume.skills.splice(index, 1)
@@ -93,6 +93,7 @@ export default new Vuex.Store({
       state.resume.projects[index][newkey] = value
     },
     updateSkill(state, payload) {
+      console.log(payload);
       let newkey = payload.key
       let value = payload.value
       let index = payload.index

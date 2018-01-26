@@ -7,18 +7,20 @@
                       :label="labels[key]"
                       :key="key.id">
           <div v-if="key === 'content'">
+            <p class="skill-rating-hack">你好哇</p>
             <el-slider
-              :value="value1"
-              @change="test($event)"
-              :step="10"
-              show-stops>
+              :label="labels[key]"
+              :value="val"
+              @input="updateSkill($event, key, index)"
+              :step="10">
             </el-slider>
           </div>
 
           <div v-else>
             <el-input :value="item[key]"
                       @input.native="updateSkill($event, key, index)"
-                      placeholder="请输入相关内容">
+                      placeholder="请输入相关内容"
+                      clearable>
             </el-input>
           </div>
 
@@ -41,7 +43,7 @@
           name: '技能',
           content: '熟练度',
         },
-        value1: 0
+        value1: '',
       }
     },
     computed: {
@@ -53,10 +55,11 @@
       }
     },
     methods: {
-      test($event) {
-        console.log($event);
-        this.value1 = $event
-      },
+//      test($event, key, index) {
+//        console.log($event)
+//        console.log(key);
+//        console.log(index);
+//      },
       addSkill() {
         this.$store.commit('addSkill')
       },
@@ -64,10 +67,9 @@
         this.$store.commit('removeSkill', index)
       },
       updateSkill($event, key, index) {
-        console.log($event)
         let newVal
         if (key === 'content') {
-          newVal = Number($event)
+          newVal = $event
         } else {
           newVal = $event.target.value
         }
@@ -92,6 +94,9 @@
       position: absolute;
       top: 12px;
       right: 4px;
+    }
+    .skill-rating-hack {
+      opacity: 0;
     }
   }
 

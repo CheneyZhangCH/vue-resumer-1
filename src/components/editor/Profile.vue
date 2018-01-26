@@ -8,7 +8,8 @@
         <el-input :value="profile[key]"
                   :autosize="{ minRows: 1, maxRows: 4}"
                   @input.native="updateProfile($event, key)"
-                  placeholder="请输入相关内容">
+                  placeholder="请输入相关内容"
+                  clearable>
         </el-input>
       </el-form-item>
     </el-form>

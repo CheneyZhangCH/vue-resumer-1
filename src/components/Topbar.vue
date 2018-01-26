@@ -7,11 +7,11 @@
         </div>
         <div class="actions" v-show="loginUI === false">
           <span class="welcome" v-show="user.username"> 欢迎您, {{user.username}}</span>
-          <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
-          <el-button plain v-on:click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
-          <el-button plain v-on:click.native="toSave()" v-show="canLogin === false">保存</el-button>
-          <el-button plain v-on:click.native="toPreview()" v-show="canLogin === false">预览</el-button>
-          <el-button plain v-on:click.native="toLogOut()" v-show="canLogin === false">登出</el-button>
+          <el-button plain @click.native="toLoginUI()" v-show="canLogin === true">登陆</el-button>
+          <el-button plain @click.native="toLoginUI()" v-show="canLogin === true">注册</el-button>
+          <el-button plain @click.native="toSave()" v-show="canLogin === false">保存</el-button>
+          <el-button plain @click.native="toPreview()" v-show="canLogin === false">预览</el-button>
+          <el-button plain @click.native="toLogOut()" v-show="canLogin === false">登出</el-button>
         </div>
       </div>
     </div>

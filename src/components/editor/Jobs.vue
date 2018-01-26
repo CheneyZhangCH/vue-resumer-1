@@ -14,18 +14,22 @@
                             type="month"
                             size="large"
                             value-format='yyyy.MM'
-                            placeholder="选择日期"></el-date-picker>
+                            placeholder="选择日期"
+                            clearable>>
+            </el-date-picker>
             <el-input v-else-if="key === 'content'"
                       type="textarea"
                       :autosize="{ minRows: 1.3, maxRows: 4}"
                       :value="item[key]"
                       @input.native="updateJob($event, key, index)"
-                      placeholder="请输入相关内容">
+                      placeholder="请输入相关内容"
+                      clearable>>
             </el-input>
             <el-input v-else
                       :value="item[key]"
                       @input.native="updateJob($event, key, index)"
-                      placeholder="请输入相关内容">
+                      placeholder="请输入相关内容"
+                      clearable>>
             </el-input>
 
 
