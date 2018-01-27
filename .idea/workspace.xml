@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56b7a65b-3496-4a22-bcf2-8850d3f32dee" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Preview.vue" afterPath="$PROJECT_DIR$/src/components/Preview.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Educations.vue" afterPath="$PROJECT_DIR$/src/components/editor/Educations.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Jobs.vue" afterPath="$PROJECT_DIR$/src/components/editor/Jobs.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Projects.vue" afterPath="$PROJECT_DIR$/src/components/editor/Projects.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/editor/Skills.vue" afterPath="$PROJECT_DIR$/src/components/editor/Skills.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/index.js" afterPath="$PROJECT_DIR$/src/store/index.js" />
     </list>
@@ -63,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="82" column="6" lean-forward="false" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+            <state relative-caret-position="262">
+              <caret line="119" column="32" lean-forward="false" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -78,8 +76,8 @@
       <file leaf-file-name="Skills.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/editor/Skills.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+            <state relative-caret-position="453">
+              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="false" />
               </folding>
@@ -87,12 +85,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Preview.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Preview.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Preview.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="191">
+              <caret line="112" column="18" lean-forward="true" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
+              <folding>
+                <element signature="n#script#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,11 +142,11 @@
       <find>projectExperience</find>
       <find>workExperience</find>
       <find>o</find>
-      <find>log</find>
       <find>awards</find>
       <find>award</find>
       <find>awa</find>
       <find>v-on:</find>
+      <find>log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,8 +178,8 @@
         <option value="$PROJECT_DIR$/src/components/editor/Jobs.vue" />
         <option value="$PROJECT_DIR$/src/components/editor/Educations.vue" />
         <option value="$PROJECT_DIR$/src/components/editor/Projects.vue" />
-        <option value="$PROJECT_DIR$/src/components/editor/Skills.vue" />
         <option value="$PROJECT_DIR$/src/components/Preview.vue" />
+        <option value="$PROJECT_DIR$/src/components/editor/Skills.vue" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
       </list>
     </option>
@@ -203,10 +203,9 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="403" />
-    <option name="y" value="23" />
-    <option name="width" value="1533" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="34" />
+    <option name="width" value="1440" />
     <option name="height" value="812" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -324,12 +323,12 @@
       <workItem from="1514556533759" duration="51188000" />
       <workItem from="1516018976327" duration="2903000" />
       <workItem from="1516104867700" duration="16561000" />
-      <workItem from="1516366636033" duration="48151000" />
+      <workItem from="1516366636033" duration="50031000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154646000" />
+    <option name="totallyTimeSpent" value="156526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -341,7 +340,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <frame x="0" y="34" width="1440" height="812" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16067654" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -821,28 +820,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/editor/Skills.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+        <state relative-caret-position="453">
+          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="n#div#0;n#div#0;n#el-form#0;n#div#0;n#template#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Preview.vue">
+    <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="262">
+          <caret line="119" column="32" lean-forward="false" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/index.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Preview.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="82" column="6" lean-forward="false" selection-start-line="82" selection-start-column="6" selection-end-line="82" selection-end-column="6" />
+        <state relative-caret-position="191">
+          <caret line="112" column="18" lean-forward="true" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="n#script#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

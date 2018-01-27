@@ -69,7 +69,6 @@
         } else {
           newVal = $event.target.value
         }
-        console.log(newVal);
         this.$store.commit('updateSkillProject', {
           mainKey: 'skills',
           value: newVal,
