@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content" v-show="loginUI === false">
         <div class="logo">
-          R
+          Resume Editor
         </div>
         <div class="actions" v-show="loginUI === false">
           <span class="welcome" v-show="user.username"> 欢迎您, {{user.username}}</span>
@@ -39,14 +39,6 @@
 <script>
 
   import AV from '../lib/leancloud'
-
-  //  let currentUser = AV.User.current();
-  //  if (currentUser) {
-  //    console.log(currentUser)
-  //    this.$store.commit('setUser', {
-  //      username: currentUser.attributes.username
-  //    })
-  //  }
 
 
   export default {
@@ -150,17 +142,16 @@
         justify-content: space-between;
         align-items: center;
         .logo {
-          height: 48px;
-          width: 48px;
-          border: 1px solid;
-          border-radius: 50%;
+          width: 300px;
+          height: 80px;
+          line-height: 80px;
           overflow: hidden;
           display: flex;
-          justify-content: center;
-          align-items: center;
           font-size: 32px;
-          background: #ffa000;
-          color: white;
+          font-family: "Hannotate SC";
+          justify-content: flex-start;
+          align-items: center;
+          color: #3488f7;
         }
         .actions {
           .welcome {

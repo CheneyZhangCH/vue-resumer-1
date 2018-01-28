@@ -24,7 +24,9 @@
         labels: {
           phone: '联系电话',
           qq: 'QQ',
-          email: '邮箱'
+          wechat: '微信',
+          email: '邮箱',
+          location: '地址'
         }
       }
     },

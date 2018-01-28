@@ -81,10 +81,19 @@
 
 <style lang="scss" scoped>
 
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+
   #editor {
+    width: 320px;
     display: flex;
     overflow: hidden;
-    width: 320px;
+    background: white;
     nav {
       background: hsla(0, 0%, 0%, 0.2);
       width: 64px;

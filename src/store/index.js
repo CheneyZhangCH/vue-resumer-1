@@ -14,16 +14,17 @@ export default new Vuex.Store({
     previewUI: false,
     resume: {
       profile: {
-        name: "Cheney",
+        name: "张晨辉",
         title: "前端工程师",
         sex: '男',
-        age: '20',
-        city: '上海',
+        age: '29',
       },
       contacts: {
         phone: '18521563197',
         qq: '809046240',
-        email: 'cheney_zhang@foxmail.com'
+        wechat: 'zch819046240',
+        email: 'cheney_zhang@foxmail.com',
+        location: '上海市浦东新区',
       },
       jobs: [
         {name: '南通贝斯特', from: '2016.05', to: '2018.02', content: '公司内部OA系统'},
@@ -41,13 +42,14 @@ export default new Vuex.Store({
         {name: 'github', content: 'www.baidubuzhidao.com'},
       ],
       skills: [
-        {name: 'Html', content: 0},
-        {name: 'CSS', content: 0},
-        {name: 'Javascript', content: 0},
-        {name: 'Vue', content: 0},
-        {name: 'Nodejs', content: 0},
-        {name: 'Express', content: 0},
-        {name: 'Eggjs', content: 0},
+        {name: 'English', content: 80},
+        {name: 'Html', content: 70},
+        {name: 'CSS', content: 60},
+        {name: 'Javascript', content: 70},
+        {name: 'Vue', content: 60},
+        {name: 'Nodejs', content: 60},
+        {name: 'Express', content: 60},
+        {name: 'Eggjs', content: 60},
       ],
     }
   },

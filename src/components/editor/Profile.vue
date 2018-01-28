@@ -6,7 +6,6 @@
                     :label="labels[key]"
                     :key="key.id">
         <el-input :value="profile[key]"
-                  :autosize="{ minRows: 1, maxRows: 4}"
                   @input.native="updateProfile($event, key)"
                   placeholder="请输入相关内容"
                   clearable>
@@ -20,7 +19,7 @@
 
     data() {
       return {
-        labels: {name: '姓名', title: '职位', sex: '性别', city: '城市', age: '年龄'},
+        labels: {name: '姓名', title: '职位', sex: '性别',  age: '年龄'},
       }
     },
     computed: {

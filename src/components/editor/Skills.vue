@@ -7,7 +7,7 @@
                       :label="labels[key]"
                       :key="key.id">
           <div v-if="key === 'content'">
-            <p class="skill-rating-hack">你好哇</p>
+            <p class="skill-rating-hack">你竟然发现了</p>
             <el-slider
               :label="labels[key]"
               :value="val"

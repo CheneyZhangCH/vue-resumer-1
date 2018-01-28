@@ -50,6 +50,7 @@
   #app {
     display: flex;
     flex-direction: column;
+    background: #f1f2f3;
     height: 100%;
     #topbar {
     }
@@ -62,9 +63,12 @@
       #editor {
         min-width: 20em;
         margin-right: 40px;
+        border-radius: 4px;
       }
       #preview {
         flex-grow: 1;
+        overflow: auto;
+        border-radius: 4px;
       }
     }
   }
