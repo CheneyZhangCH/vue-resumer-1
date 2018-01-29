@@ -64,39 +64,85 @@
           </section>
         </div>
         <div class="right-part">
-          <h1>WORK & EDUCATIONS & PROJECTS</h1>
-          <section v-if="resume.jobs">
-            <h2>工作经验</h2>
+          <section class="work-title">
+            <h1>WORK & EDUCATIONS & PROJECTS</h1>
+          </section>
+          <section v-if="resume.jobs" class="work-wrapper">
             <ul>
-              <li v-for="item in resume.jobs">
-                <h4> {{item.name}}</h4>
-                <h4> {{item.from}}</h4>
-                <p>至</p>
-                <h4> {{item.to}}</h4>
-                <h4> {{item.content}}</h4>
+              <li class="work-items" v-for="item in resume.jobs">
+                <div class="work-period">
+                  <p>
+                    {{item.from}}
+                    <span> ~ </span>
+                    {{item.to}}
+                  </p>
+                </div>
+                <div class="circle-border">
+                  <div class="circle-item"></div>
+                  <div class="border-item"></div>
+                </div>
+                <div class="work-content">
+                  <p class="work-company-name"> {{item.name}}</p>
+                  <ul>
+                    <li v-for="subItem in item.content.split('\n')">
+                      <p>
+                        {{subItem}}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </section>
-          <section v-if="resume.educations">
-            <h2>教育背景</h2>
+          <section v-if="resume.educations" class="work-wrapper">
             <ul>
-              <li v-for="item in resume.educations">
-                <h4> {{item.name}}</h4>
-                <h4> {{item.from}}</h4>
-                <p>至</p>
-                <h4> {{item.to}}</h4>
-                <h4> {{item.content}}</h4>
+              <li class="work-items" v-for="item in resume.educations">
+                <div class="work-period">
+                  <p>
+                    {{item.from}}
+                    <span> ~ </span>
+                    {{item.to}}
+                  </p>
+                </div>
+                <div class="circle-border">
+                  <div class="circle-item"></div>
+                  <div class="border-item"></div>
+                </div>
+                <div class="work-content">
+                  <p class="work-company-name"> {{item.name}}</p>
+                  <ul>
+                    <li v-for="subItem in item.content.split('\n')">
+                      <p>
+                        {{subItem}}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </section>
-          <section v-if="resume.projects">
-            <h2>项目经历</h2>
+          <section v-if="resume.projects" class="work-wrapper">
             <ul>
-              <li v-for="item in resume.projects">
-                <h4> {{item.name}}</h4>
-                <h4> {{item.content}}</h4>
+              <li class="work-items" v-for="item in resume.projects">
+                <div class="work-period">
+                  <p>
+                    {{item.name}}
+                  </p>
+                </div>
+                <div class="circle-border">
+                  <div class="border-item"></div>
+                </div>
+                <div class="work-content">
+                  <p class="work-company-name">
+                    <a :href="'http://'+item.content">
+                      {{item.content}}
+                    </a>
+                  </p>
+                </div>
               </li>
             </ul>
+
+
           </section>
 
 
@@ -146,32 +192,31 @@
     align-items: flex-start;
     background: white;
     .left-part {
-      width: 300px;
+      width: 225px;
       border-radius: 4px;
-      border: 1px solid;
       background: hsla(0, 0%, 0%, 0.2);
       .profile-wrapper {
-        height: 240px;
+        height: 180px;
         display: flex;
         justify-content: center;
         align-items: center;
         background: white;
         .main-name {
           text-align: center;
-          font-size: 40px;
+          font-size: 30px;
         }
         .user-info {
-          font-size: 16px;
+          font-size: 12px;
           text-align: center;
         }
       }
       .contact-wrapper {
-        height: 240px;
+        height: 180px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-top-right-radius: 320px 40px;
+        border-top-right-radius: 225px 30px;
         background: white;
         background-image: -webkit-gradient(
             linear, //表示渐变的为直线 另外一个值是radial
@@ -187,18 +232,18 @@
             color-stop(.5, transparent),
             color-stop(.5, hsla(0, 0%, 0%, 0.2)),
             to(hsla(0, 0%, 0%, 0.2)));
-        background-size: 16px 8px;
+        background-size: 12px 6px;
         background-repeat: repeat-x;
         background-position: 0 100%;
         .contact-item {
-          width: 252px;
-          height: 36px;
-          font-size: 16px;
-          line-height: 36px;
+          width: 189px;
+          height: 27px;
+          font-size: 12px;
+          line-height: 27px;
           display: flex;
           align-items: center;
           svg {
-            width: 36px;
+            width: 27px;
           }
         }
       }
@@ -207,70 +252,112 @@
         justify-content: center;
         flex-direction: column;
         .title-item {
-          width: 252px;
-          margin: 16px auto;
+          width: 189px;
+          margin: 12px auto;
           text-align: center;
         }
         .skill-item-wrapper {
-          width: 252px;
+          width: 189px;
           display: flex;
           flex-direction: column;
           margin: 0 auto;
           .skill-item {
-            width: 252px;
-            margin-top: 16px;
+            width: 189px;
+            margin-top: 12px;
             .skill-name {
             }
             .skill-rating {
-              width: 252px;
+              width: 189px;
             }
           }
         }
       }
     }
     .right-part {
-      margin-left: 8px;
-      border: 1px solid;
+      margin-left: 6px;
       flex: 1;
-    }
-  }
-
-  .active {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    > .preview-wrapper {
-      position: relative;
-      width: 1280px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 1px solid;
       display: flex;
-      .left-part {
-        width: 300px;
-      }
-      .close-icon-wrapper {
-        position: absolute;
-        right: -64px;
-        top: 16px;
-        width: 40px;
-        height: 40px;
-        border: 1px solid;
-        border-radius: 4px;
-        background: #000;
-        color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .work-title {
+        height: 180px;
+        width: 100%;
+        color: #888888;
         display: flex;
-        align-items: center;
         justify-content: center;
-        .el-icon-close {
-          font-size: 24px;
-          line-height: 24px;
+        align-items: center;
+      }
+      .work-wrapper {
+        width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .work-items {
+          width: 600px;
+          display: flex;
+          margin-bottom: 12px;
+          .work-period {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 24px;
+            border-radius: 12px;
+            background: #363435;
+            font-size: 12px;
+            color: white;
+          }
+          .circle-border {
+            width: 12px;
+            padding-top: 4px;
+            margin-left: 12px;
+            margin-right: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            .circle-item {
+              height: 12px;
+              width: 12px;
+              border: 2px solid #888888;
+              border-radius: 50% 50%;
+            }
+            .border-item {
+              flex: 1;
+              height: 100%;
+              border-left: 1px solid #888888;
+            }
+
+          }
+
+          .work-content {
+            padding-left: 12px;
+            flex: 1;
+            .work-company-name {
+              font-size: 16px;
+              color: #363435;
+            }
+            ul {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-top: 6px;
+              padding-left: 24px;
+              li {
+                min-height: 18px;
+                font-size: 12px;
+                color: #888888;
+                line-height: 18px;
+                list-style: disc;
+              }
+            }
+          }
+
         }
+
       }
     }
   }
-
 
 </style>

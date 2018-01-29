@@ -27,10 +27,10 @@ export default new Vuex.Store({
         location: '上海市浦东新区',
       },
       jobs: [
-        {name: '南通贝斯特', from: '2016.05', to: '2018.02', content: '公司内部OA系统'},
-        {name: '欧赛德上海', from: '2014.06', to: '2016.05', content: '公司内部OA系统'},
-        {name: 'STX大连', from: '2012.10', to: '2014.06', content: '公司内部OA系统'},
-        {name: '南通熔盛重工', from: '2011.06', to: '2012.10', content: '公司内部OA系统'},
+        {name: '南通江海海洋工程研究院', from: '2016.05', to: '2018.02', content: '公司内部OA系统'},
+        {name: '欧赛德上海船舶设计有限公司', from: '2014.06', to: '2016.05', content: '公司内部OA系统'},
+        {name: 'STX大连造船集团', from: '2012.10', to: '2014.06', content: '公司内部OA系统'},
+        {name: '江苏熔盛重工造船集团', from: '2011.06', to: '2012.10', content: '公司内部OA系统'},
       ],
       educations: [
         {name: '大连理工大学', from: '2007.09', to: '2011.06', content: '本科'},

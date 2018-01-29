@@ -81,7 +81,8 @@
         } else {
           newVal = $event.target.value
         }
-        this.$store.commit('updateEducation', {
+        this.$store.commit('updateJobEducation', {
+          mainKey: 'educations',
           value: newVal,
           key: key,
           index: index

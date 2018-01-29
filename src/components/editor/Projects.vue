@@ -60,7 +60,7 @@
         })
       },
       updateSkillProject($event, key, index) {
-        this.$store.commit('updateProject', {
+        this.$store.commit('updateSkillProject', {
           value: $event.target.value,
           mainKey: 'projects',
           key: key,
