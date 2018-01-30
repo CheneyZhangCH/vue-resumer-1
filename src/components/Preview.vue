@@ -268,7 +268,7 @@
       .project-wrapper {
         display: flex;
         justify-content: center;
-        align-items:center;
+        align-items: center;
         flex-direction: column;
         background: white;
         .project-title {
@@ -280,7 +280,7 @@
           width: 189px;
           display: flex;
           justify-content: center;
-          align-items:center;
+          align-items: center;
           flex-direction: column;
           .project-name {
             font-size: 15px;
@@ -361,13 +361,15 @@
               color: #363435;
             }
             ul {
+              min-height: 120px;
               display: flex;
               flex-direction: column;
-              justify-content: center;
+              justify-content: start;
+              align-items: flex-start;
               margin-top: 6px;
               padding-left: 24px;
               li {
-                min-height: 120px;
+                min-height: 18px;
                 font-size: 12px;
                 color: #888888;
                 line-height: 18px;
@@ -476,7 +478,7 @@
         .project-wrapper {
           display: flex;
           justify-content: center;
-          align-items:center;
+          align-items: center;
           flex-direction: column;
           background: white;
           .project-title {
@@ -488,7 +490,7 @@
             width: 252px;
             display: flex;
             justify-content: center;
-            align-items:center;
+            align-items: center;
             flex-direction: column;
             .project-name {
               font-size: 1520;
@@ -570,13 +572,14 @@
                 color: #363435;
               }
               ul {
+                min-height: 180px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-start;
                 margin-top: 8px;
                 padding-left: 32px;
                 li {
-                  min-height: 160px;
+                  min-height: 24px;
                   font-size: 16px;
                   color: #888888;
                   line-height: 24px;
