@@ -62,6 +62,22 @@
               </li>
             </ul>
           </section>
+          <section v-if="resume.projects" class="project-wrapper">
+            <h2 class="project-title">PROJECTS</h2>
+            <ul>
+              <li class="project-item" v-for="item in resume.projects">
+                <h4 class="project-name">
+                  {{item.name}}
+                </h4>
+                <p class="project-link">
+                  <a :href="'http://'+item.content">
+                    {{item.content}}
+                  </a>
+                </p>
+                <hr>
+              </li>
+            </ul>
+          </section>
         </div>
         <div class="right-part">
           <section class="work-title">
@@ -121,31 +137,6 @@
               </li>
             </ul>
           </section>
-          <section v-if="resume.projects" class="work-wrapper">
-            <ul>
-              <li class="work-items" v-for="item in resume.projects">
-                <div class="work-period">
-                  <p>
-                    {{item.name}}
-                  </p>
-                </div>
-                <div class="circle-border">
-                  <div class="border-item"></div>
-                </div>
-                <div class="work-content">
-                  <p class="work-company-name">
-                    <a :href="'http://'+item.content">
-                      {{item.content}}
-                    </a>
-                  </p>
-                </div>
-              </li>
-            </ul>
-
-
-          </section>
-
-
         </div>
       </div>
     </div>
@@ -219,15 +210,13 @@
         border-top-right-radius: 225px 30px;
         background: white;
         background-image: -webkit-gradient(
-            linear, //表示渐变的为直线 另外一个值是radial
-            50% 0, //直线型渐变的起点位置 后边有一个属性background-size规定背景的大小，30 X 15px  50% 0 都是乘以父元素的宽高。
-            0 100%, //结束点的位置 和上类似
-            from(transparent), //起点的颜色
-            color-stop(.5, transparent), //中间某一个点必须达到这个颜色，表示变化过程  .5b表示这个渐变范围长度的总长的50%
-            color-stop(.5, hsla(0, 0%, 0%, 0.2)), //同上
-            to(hsla(0, 0%, 0%, 0.2))), //结束段的颜色
-          //一个背景块的分为两个15X 15  组成。
-
+            linear,
+            50% 0,
+            0 100%,
+            from(transparent),
+            color-stop(.5, transparent),
+            color-stop(.5, hsla(0, 0%, 0%, 0.2)),
+            to(hsla(0, 0%, 0%, 0.2))),
         -webkit-gradient(linear, 50% 0, 100% 100%, from(transparent),
             color-stop(.5, transparent),
             color-stop(.5, hsla(0, 0%, 0%, 0.2)),
@@ -242,6 +231,7 @@
           line-height: 27px;
           display: flex;
           align-items: center;
+
           svg {
             width: 27px;
           }
@@ -251,6 +241,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        color: #fdfbfc;
         .title-item {
           width: 189px;
           margin: 12px auto;
@@ -265,11 +256,43 @@
             width: 189px;
             margin-top: 12px;
             .skill-name {
+              font-size: 15px;
             }
             .skill-rating {
               width: 189px;
+              font-size: 12px;
             }
           }
+        }
+      }
+      .project-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+        background: white;
+        .project-title {
+          width: 189px;
+          margin: 12px auto;
+          text-align: center;
+        }
+        .project-item {
+          width: 189px;
+          display: flex;
+          justify-content: center;
+          align-items:center;
+          flex-direction: column;
+          .project-name {
+            font-size: 15px;
+            width: 189px;
+            margin-top: 12px;
+          }
+        }
+        .project-link {
+          font-size: 12px;
+          width: 189px;
+          margin-top: 12px;
+
         }
       }
     }
@@ -330,7 +353,6 @@
             }
 
           }
-
           .work-content {
             padding-left: 12px;
             flex: 1;
@@ -345,7 +367,7 @@
               margin-top: 6px;
               padding-left: 24px;
               li {
-                min-height: 18px;
+                min-height: 120px;
                 font-size: 12px;
                 color: #888888;
                 line-height: 18px;
@@ -353,11 +375,238 @@
               }
             }
           }
-
         }
-
       }
     }
   }
+
+  .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    .preview-wrapper {
+      position: relative;
+      width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      .left-part {
+        width: 300px;
+        border-radius: 4px;
+        background: hsla(0, 0%, 0%, 0.2);
+        .profile-wrapper {
+          height: 240px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: white;
+          .main-name {
+            text-align: center;
+            font-size: 40px;
+          }
+          .user-info {
+            font-size: 16px;
+            text-align: center;
+          }
+        }
+        .contact-wrapper {
+          height: 240px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          border-top-right-radius: 300px 40px;
+          background: white;
+          background-image: -webkit-gradient(
+              linear, //表示渐变的为直线 另外一个值是radial
+              50% 0, //直线型渐变的起点位置 后边有一个属性background-size规定背景的大小，30 X 15px  50% 0 都是乘以父元素的宽高。
+              0 100%, //结束点的位置 和上类似
+              from(transparent), //起点的颜色
+              color-stop(.5, transparent), //中间某一个点必须达到这个颜色，表示变化过程  .5b表示这个渐变范围长度的总长的50%
+              color-stop(.5, hsla(0, 0%, 0%, 0.2)), //同上
+              to(hsla(0, 0%, 0%, 0.2))), //结束段的颜色
+            //一个背景块的分为两个15X 15  组成。
+
+          -webkit-gradient(linear, 50% 0, 100% 100%, from(transparent),
+              color-stop(.5, transparent),
+              color-stop(.5, hsla(0, 0%, 0%, 0.2)),
+              to(hsla(0, 0%, 0%, 0.2)));
+          background-size: 12px 6px;
+          background-repeat: repeat-x;
+          background-position: 0 100%;
+          .contact-item {
+            width: 252px;
+            height: 36px;
+            font-size: 16px;
+            line-height: 36px;
+            display: flex;
+            align-items: center;
+            svg {
+              width: 36px;
+            }
+          }
+        }
+        .skill-wrapper {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          .title-item {
+            width: 252px;
+            margin: 16px auto;
+            text-align: center;
+          }
+          .skill-item-wrapper {
+            width: 252px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            .skill-item {
+              width: 252px;
+              margin-top: 16px;
+              .skill-name {
+              }
+              .skill-rating {
+                width: 252px;
+              }
+            }
+          }
+        }
+        .project-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items:center;
+          flex-direction: column;
+          background: white;
+          .project-title {
+            width: 252px;
+            margin: 16px auto;
+            text-align: center;
+          }
+          .project-item {
+            width: 252px;
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            flex-direction: column;
+            .project-name {
+              font-size: 1520;
+              width: 252px;
+              margin-top: 16px;
+            }
+          }
+          .project-link {
+            font-size: 16px;
+            width: 252px;
+            margin-top: 16px;
+
+          }
+        }
+      }
+      .right-part {
+        margin-left: 8px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .work-title {
+          height: 240px;
+          width: 100%;
+          color: #888888;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .work-wrapper {
+          width: 900px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .work-items {
+            width: 900px;
+            display: flex;
+            margin-bottom: 16px;
+            .work-period {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: 32px;
+              width: 200px;
+              height: 32px;
+              border-radius: 16px;
+              background: #363435;
+              font-size: 16px;
+              color: white;
+            }
+            .circle-border {
+              width: 16px;
+              padding-top: 4px;
+              margin-left: 16px;
+              margin-right: 16px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+              .circle-item {
+                height: 16px;
+                width: 16px;
+                border: 2px solid #888888;
+                border-radius: 50% 50%;
+              }
+              .border-item {
+                flex: 1;
+                height: 100%;
+                border-left: 1px solid #888888;
+              }
+
+            }
+            .work-content {
+              padding-left: 16px;
+              flex: 1;
+              .work-company-name {
+                font-size: 24px;
+                color: #363435;
+              }
+              ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 8px;
+                padding-left: 32px;
+                li {
+                  min-height: 160px;
+                  font-size: 16px;
+                  color: #888888;
+                  line-height: 24px;
+                  list-style: disc;
+                }
+              }
+            }
+          }
+        }
+      }
+      .close-icon-wrapper {
+        position: absolute;
+        right: -64px;
+        top: 16px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+        border-radius: 4px;
+        background: #000;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .el-icon-close {
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
 
 </style>

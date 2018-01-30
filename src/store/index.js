@@ -38,8 +38,8 @@ export default new Vuex.Store({
       ],
       projects: [
         {name: '在线简历编辑器', content: 'www.baidubuzhidao.com'},
-        {name: 'note online', content: 'www.baidubuzhidao.com'},
-        {name: 'github', content: 'www.baidubuzhidao.com'},
+        {name: 'NOTE online', content: 'www.baidubuzhidao.com'},
+        {name: 'Github', content: 'www.baidubuzhidao.com'},
       ],
       skills: [
         {name: 'English', content: 80},
