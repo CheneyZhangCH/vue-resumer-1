@@ -1,6 +1,6 @@
 # Vue resume editor
 
-## 本项目使用Vue + Vuex + ElementUI 实现简历编辑、存储及预览功能
+## 本项目使用Vue + Vuex + ElementUI 实现简历编辑及预览功能
 
 ## 测试账号： 1， 密码： 1
 
