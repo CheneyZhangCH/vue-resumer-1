@@ -1,10 +1,12 @@
-# Vue resume editor
+## Vue在线简历编辑
 
-## 本项目使用Vue + Vuex + ElementUI 实现简历编辑及预览功能
+技术站 vue, vuex, elementui
 
-## 测试账号： 1， 密码： 1
+采用Vuex进行数据管理，ElementUI风格实现简历编辑及预览功能
 
-## 预览地址“ https://cheneyzhangch.github.io/vue-resumer-1/dist/
+测试账号： 1， 密码： 1
+
+预览地址“ https://cheneyzhangch.github.io/vue-resumer-1/dist/
 
 > A Vue.js project
 
